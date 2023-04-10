@@ -72,6 +72,46 @@ CTAN and the various mirrors) and that the build recipe continues to produce
 the same output. Should those assumptions not hold, remove the previous fixed
 hashes for the relevant package, or for all packages.
 
+## Reviewing the bin containers
+
+Most `tlType == "bin"` containers consist of links to scripts distributed in
+`$TEXMFDIST/scripts`. Several of them require simple overrides in
+`default.nix`, for instance to add aliases. Some require additional patching,
+usually to use the correct runtime dependencies.
+
+The test `tests.texlive.shebangs` verifies that all shebangs have been patched.
+Please run it to find if further interpreters are needed.
+
+Please review the bin containers at least once for major TeX Live release for
+other changes in runtime dependencies. Below are some checks, with the results
+as of TeX Live 2022. Set `scripts` to the folder `$TEXMFDIST/scripts`.
+
+- Calls to `exec $interpreter`
+  ```
+  grep -IRS 'exec ' "$scripts" | cut -d: -f2 | sort -u | less -S
+  ```
+  - calls to `perl`, `java` (both by multiple packages), `/bin/sh5`, `/bin/bsh`
+  - `sh5`, `bsh` are activated by `RUNNING_{B,K}SH` and can be ignored
+
+- `@INC` manipulation by perl scripts:
+  ```
+  grep -IRS '@INC' "$scripts" | less -S
+  ```
+  - `texlive-scripts`, `pedigree-perl`: handled by patch in overrides
+  - `a2ping`, `latexmk`: false positives
+  - `crossrefware`: has perl dependencies
+  ```
+  grep -IRS 'FindBin' "$scripts" | less -S
+  ```
+  - `latexindent`: patched in `bin.latexindent`
+  - `texfont.pl`: false positive
+  - `purifyeps`: has perl dependencies
+
+The remaining runtime dependencies are (hopefully) provided in `PATH` by
+`texlive.combine`. Some are not (e.g. ImageMagick), and we ignore those for
+practicality, unless they cause issues. The exception is ghostscript, as it is
+essential for many scripts.
+
 ### Commit changes
 
 Commit the updated `tlpdb.nix` and `fixed-hashes.nix` to the repository with
