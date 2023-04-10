@@ -233,6 +233,10 @@ let
         pkg = attrs // {
           sha512 = attrs.sha512.${if tlType == "tlpkg" then "run" else tlType};
           inherit pname tlType version;
+        } // lib.optionalAttrs (tlType == "doc" && attrs.hasManpagesInDoc or false) {
+          hasManpages = true;
+        } // lib.optionalAttrs (tlType == "run" && attrs.hasManpagesInRun or false) {
+          hasManpages = true;
         };
         in mkPkg pkg;
       # tarball of a collection/scheme itself only contains a tlobj file
@@ -403,7 +407,11 @@ let
             hasHyphens = args.hasHyphens or false;
           } // lib.optionalAttrs (tlType == "tlpkg" && args ? postactionScript) {
             postactionScript = args.postactionScript;
-          } // lib.optionalAttrs (args ? formats) { inherit (args) formats; };
+          } // lib.optionalAttrs (args ? formats) {
+            inherit (args) formats;
+          } // lib.optionalAttrs (args ? hasManpages) {
+            inherit (args) hasManpages;
+          };
         } // lib.optionalAttrs (fixedHash != null) {
           outputHash = fixedHash;
           outputHashAlgo = "sha256";

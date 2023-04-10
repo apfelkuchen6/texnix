@@ -107,6 +107,14 @@ $a}
   # extract postaction scripts (right now, at most one per package, so a string suffices)
   s/^postaction script file=(.*)$/  postactionScript = "\1";/p
 
+  /^docfiles /,/^[^ ]/{
+    s! (texmf-dist|RELOC)/doc/man/.*!  hasManpagesInDoc = true;!p
+  }
+
+  /^runfiles /,/^[^ ]/{
+    s! (texmf-dist|RELOC)/doc/man/.*!  hasManpagesInRun = true;!p
+  }
+
   # close attrmap
   /^$/{
     i};
