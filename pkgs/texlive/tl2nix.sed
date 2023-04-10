@@ -66,17 +66,57 @@ $a}
     s/^.*\n//          # remove saved lines, resume processing
   }
 
-  # extract postaction scripts (right now, at most one per package, so a string suffices)
-  s/^postaction script file=(.*)$/  postactionScript = "\1";/p
-
   # extract hyphenation patterns and formats
   # (this may create duplicate lines, use uniq to remove them)
   /^execute\sAddHyphen/i\  hasHyphens = true;
-  /^execute\sAddFormat/i\  hasFormats = true;
+
+  # extract format details
+  /^execute\sAddFormat\s/{
+    i\  formats = [
+    :next-format
+
+    # create one attribute set per format
+    # note that format names are not unique
+
+    # plain keys: name, engine, patterns
+    # optionally double quoted key: options
+    # boolean key: mode (enabled/disabled)
+    # comma-separated lists: fmttriggers, patterns
+
+    s/(^|\n)execute\sAddFormat/    {/
+    s/\s+options="([^"]+)"/\n      options = "\1";/
+    s/\s+(name|engine|options)=([^ \t\n]+)/\n      \1 = "\2";/g
+    s/\s+mode=enabled//
+    s/\s+mode=disabled/\n      enabled = false;/
+    s/\s+(fmttriggers|patterns)=([^ \t\n]+)/\n      \1 = [ "\2" ];/g
+    s/$/\n    }\n/
+
+    :split-triggers
+    s/"([^,]+),([^"]+)" ]/"\1" "\2" ]/;
+    t split-triggers   # repeat until there are no commas
+
+    # save & read next line
+    h ; N
+    # continue processing if still matching
+    /\nexecute\sAddFormat\s[^\n]*$/b next-format
+
+    x; s/$/  ];/p ; x # print saved formats
+    s/^.*\n//         # remove formats, resume processing
+  }
+
+  # extract postaction scripts (right now, at most one per package, so a string suffices)
+  s/^postaction script file=(.*)$/  postactionScript = "\1";/p
 
   # close attrmap
   /^$/{
     i};
     b next-package
   }
+}
+
+# add list of binaries from one of the architecture-specific packages
+/^name ([^.]+)\.x86_64-linux$/,/^$/{
+  s/^name (.*)\.x86_64-linux$/"\1".binfiles = [/p
+  s!^ bin/x86_64-linux/(.+)$!  "\1"!p
+  /^$/i];
 }
