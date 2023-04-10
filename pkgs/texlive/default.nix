@@ -24,7 +24,7 @@ let
   # function for creating a working environment from a set of TL packages
   combine = import ./combine.nix {
     inherit bin combinePkgs buildEnv lib makeWrapper writeText runCommand
-      stdenv python3 ruby perl gnused gnugrep coreutils libfaketime makeFontsConf;
+      stdenv python3 ruby perl gnused gnugrep coreutils libfaketime makeFontsConf bash tl;
     ghostscript = ghostscript_headless;
   };
 
@@ -43,7 +43,7 @@ let
            in if binNoFormats != [] then attrs // { binfiles = binNoFormats; } else removeAttrs attrs [ "binfiles" ]
       else attrs);
 
-    orig = removeFormatLinks (removeAttrs tlpdp [ "00texlive.config"] )
+    orig = removeFormatLinks (removeAttrs tlpdb [ "00texlive.config"] );
 
     overridden = orig // {
       # overrides of texlive.tlpdb
@@ -235,24 +235,24 @@ let
           inherit pname tlType version;
         };
         in mkPkg pkg;
-    in {
-      # TL pkg contains lists of packages: runtime files, docs, sources, tlpkg, binaries
-      pkgs =
-        # tarball of a collection/scheme itself only contains a tlobj file
-        [( if (attrs.hasRunfiles or false) then mkPkgV "run"
-            # the fake derivations are used for filtering of hyphenation patterns and formats
+      # tarball of a collection/scheme itself only contains a tlobj file
+      # likewise for most packages compiled in bin.core, bin.core-big
+      # the fake derivations are used for filtering of hyphenation patterns and formats
+      run = if (attrs.hasRunfiles or false) then mkPkgV "run"
           else ({
             inherit pname version;
             tlType = "run";
             hasHyphens = attrs.hasHyphens or false;
             tlDeps = map (n: tl.${n}) (attrs.deps or []);
-          } // lib.optionalAttrs (attrs ? formats) { inherit (attrs) formats; })
-        )]
+          } // lib.optionalAttrs (attrs ? formats) { inherit (attrs) formats; });
+    in {
+      # TL pkg contains lists of packages: runtime files, docs, sources, binaries
+      pkgs =
+        [ run ]
         ++ lib.optional (attrs.sha512 ? doc) (mkPkgV "doc")
         ++ lib.optional (attrs.sha512 ? source) (mkPkgV "source")
         ++ lib.optional (attrs.hasTlpkg or false) (mkPkgV "tlpkg")
-        ++ lib.optional (bin ? ${pname})
-            ( bin.${pname} // { tlType = "bin"; } );
+        ++ lib.optional (attrs ? binfiles) (mkPkgBin pname version run attrs);
     };
 
   version = {

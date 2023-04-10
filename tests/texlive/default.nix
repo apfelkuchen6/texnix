@@ -191,4 +191,24 @@
       {"$kpathsea","$schemeFull"/share/texmf-var}/web2c/fmtutil.cnf \
       | tee "$out/fmtutil.cnf.patch"
   '';
+
+  # check that we have (wrappers for) all scripts listed in TeX Live
+  # except for the *-sys scripts, tlmgr, tlshell that cannot operate on the readonly nix store
+  # TODO htcopy, htmove, citeproc are *not* distributed by TeX Live and must be removed from scripts.lst
+  scriptsLst = runCommand "texlive-test-scripts.lst" {
+    schemeFull = texlive.combined.scheme-full;
+  }
+  ''
+    source '${texlive.bin.core}/share/texmf-dist/scripts/texlive/scripts.lst'
+    for s in $texmf_scripts; do
+      tNameExt="''${s##*/}"    # basename
+      tName="''${tNameExt%.*}" # remove extension
+      [[ "$tName" != *-sys && "$tName" != tlmgr && "$tName" != tlshell ]] || continue
+      [[ "$tName" != htcopy && "$tName" != htmove && "$tName" != citeproc ]] || continue
+      [[ ! -e "$schemeFull/bin/$tName" && ! -e "$schemeFull/bin/$tNameExt" ]] || continue
+      echo "error: wrapper '$tName' for '$s' not found"
+      exit 1
+    done
+    mkdir "$out"
+  '';
 }
