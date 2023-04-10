@@ -195,20 +195,53 @@
   # check that we have (wrappers for) all scripts listed in TeX Live
   # except for the *-sys scripts, tlmgr, tlshell that cannot operate on the readonly nix store
   # TODO htcopy, htmove, citeproc are *not* distributed by TeX Live and must be removed from scripts.lst
-  scriptsLst = runCommand "texlive-test-scripts.lst" {
-    schemeFull = texlive.combined.scheme-full;
-  }
-  ''
-    source '${texlive.bin.core}/share/texmf-dist/scripts/texlive/scripts.lst'
-    for s in $texmf_scripts; do
-      tNameExt="''${s##*/}"    # basename
-      tName="''${tNameExt%.*}" # remove extension
-      [[ "$tName" != *-sys && "$tName" != tlmgr && "$tName" != tlshell ]] || continue
-      [[ "$tName" != htcopy && "$tName" != htmove && "$tName" != citeproc ]] || continue
-      [[ ! -e "$schemeFull/bin/$tName" && ! -e "$schemeFull/bin/$tNameExt" ]] || continue
-      echo "error: wrapper '$tName' for '$s' not found"
-      exit 1
-    done
-    mkdir "$out"
-  '';
+  scriptsLst = runCommand "texlive-test-scripts.lst"
+    {
+      schemeFull = texlive.combined.scheme-full;
+    }
+    ''
+      source '${texlive.bin.core}/share/texmf-dist/scripts/texlive/scripts.lst'
+      for s in $texmf_scripts; do
+        tNameExt="''${s##*/}"    # basename
+        tName="''${tNameExt%.*}" # remove extension
+        [[ "$tName" != *-sys && "$tName" != tlmgr && "$tName" != tlshell ]] || continue
+        [[ "$tName" != htcopy && "$tName" != htmove && "$tName" != citeproc ]] || continue
+        [[ ! -e "$schemeFull/bin/$tName" && ! -e "$schemeFull/bin/$tNameExt" ]] || continue
+        echo "error: wrapper '$tName' for '$s' not found"
+        exit 1
+      done
+      mkdir "$out"
+    '';
+
+  # check that all scripts have a Nix shebang
+  shebangs = let
+      allPackages = with lib; concatLists (catAttrs "pkgs" (filter isAttrs (attrValues texlive)));
+      binPackages = lib.filter (p: p.tlType == "bin") allPackages;
+    in
+    runCommand "texlive-test-shebangs" { }
+      (''
+        storePath="''${out%/*}"
+        echo "checking that all texlive scripts shebangs are in '$storePath'"
+        declare -i scriptCount=0 invalidCount=0
+      '' +
+      (lib.concatMapStrings
+        (pkg: ''
+          for bin in '${pkg.outPath}'/bin/* ; do
+            grep -I -q . "$bin" || continue  # ignore binary files
+            scriptCount=$((scriptCount + 1))
+            read -r cmdline < "$bin"
+            read -r interp <<< "$cmdline"
+            if [[ "$interp" != "#!$storePath"/* && "$interp" != "#! $storePath"/* ]] ; then
+              echo "error: non-nix shebang '#!$interp' in script '$bin'"
+              invalidCount=$((invalidCount + 1))
+            fi
+          done
+        '')
+        binPackages)
+      + ''
+        echo "checked $scriptCount scripts, found $invalidCount non-nix shebangs"
+        [[ $invalidCount -gt 0 ]] && exit 1
+        mkdir -p "$out"
+      ''
+      );
 }
