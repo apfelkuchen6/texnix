@@ -5,7 +5,7 @@
 , perl, perlPackages, python3Packages, pkg-config
 , libpaper, graphite2, zziplib, harfbuzz, potrace, gmp, mpfr
 , brotli, cairo, pixman, xorg, clisp, biber, woff2, xxHash
-, makeWrapper, shortenPerlShebang, useFixedHashes
+, makeWrapper, shortenPerlShebang, asymptote, useFixedHashes
 }:
 
 # Useful resource covering build options:
@@ -458,6 +458,7 @@ texlinks = stdenv.mkDerivation rec {
   '';
 };
 
+inherit asymptote;
 
 inherit biber;
 bibtexu = bibtex8;
