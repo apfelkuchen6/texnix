@@ -192,6 +192,16 @@
       | tee "$out/fmtutil.cnf.patch"
   '';
 
+  # verify that the restricted mode gets enabled when
+  # needed (detected by checking if it disallows --gscmd)
+  rpdfcrop = runCommand "texlive-test-rpdfcrop" {
+    nativeBuildInputs = [ (texlive.combine { inherit (texlive) scheme-infraonly pdfcrop; }) ];
+  } ''
+    ! (pdfcrop --gscmd echo $(command -v pdfcrop) 2>&1 || true) | grep 'restricted mode' >/dev/null
+    (rpdfcrop --gscmd echo $(command -v pdfcrop) 2>&1 || true) | grep 'restricted mode' >/dev/null
+    mkdir "$out"
+  '';
+
   # check that we have (wrappers for) all scripts listed in TeX Live
   # except for the *-sys scripts, tlmgr, tlshell that cannot operate on the readonly nix store
   # TODO htcopy, htmove, citeproc are *not* distributed by TeX Live and must be removed from scripts.lst
