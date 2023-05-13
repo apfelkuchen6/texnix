@@ -16,6 +16,7 @@ let
     harfbuzz = harfbuzz.override {
       withIcu = true; withGraphite2 = true;
     };
+    inherit useFixedHashes;
   };
 
   # function for creating a working environment from a set of TL packages
@@ -233,9 +234,13 @@ let
       operator = { pkg, ... }: pkgListToSets (pkg.tlDeps or []);
     });
 
-  assertions =
-    lib.assertMsg (tlpdbVersion.year == version.texliveYear) "TeX Live year in texlive does not match tlpdb.nix, refusing to evaluate" &&
-    lib.assertMsg (tlpdbVersion.frozen == version.final) "TeX Live final status in texlive does not match tlpdb.nix, refusing to evaluate";
+  assertions = with lib;
+    assertMsg (tlpdbVersion.year == version.texliveYear) "TeX Live year in texlive does not match tlpdb.nix, refusing to evaluate" &&
+    assertMsg (tlpdbVersion.frozen == version.final) "TeX Live final status in texlive does not match tlpdb.nix, refusing to evaluate" &&
+    (let all = concatLists (catAttrs "pkgs" (attrValues tl));
+         fods = filter (p: isDerivation p && p.tlType != "bin") all;
+     in assertMsg (useFixedHashes || builtins.all (p: p ? outputHash) fods)
+        "Some TeX Live fixed output hashes are missing. Please read UPGRADING.md on how to build a new 'fixed-hashes.nix'.");
 
 in
   tl // {
