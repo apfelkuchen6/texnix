@@ -237,6 +237,7 @@
       (lib.concatMapStrings
         (pkg: ''
           for bin in '${pkg.outPath}'/bin/* ; do
+            [[ -x $bin ]] || continue # ignore non-executables in $out/bin
             grep -I -q . "$bin" || continue  # ignore binary files
             scriptCount=$((scriptCount + 1))
             read -r cmdline < "$bin"

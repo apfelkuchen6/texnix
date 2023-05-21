@@ -116,6 +116,10 @@ in (buildEnv {
     declare -i wrapCount=0
     for link in "$out"/bin/*; do
       target="$(realpath "$link")"
+
+      # don't try to wrap nonexecutable files
+      [[ -x $target ]] || continue
+
       if [[ "''${target##*/}" != "''${link##*/}" ]] ; then
         # detected alias with different basename, use immediate target of $link to preserve $0
         # relevant for mktexfmt, repstopdf, ...
