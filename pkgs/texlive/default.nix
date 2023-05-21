@@ -278,7 +278,7 @@ let
   urlPrefixes = with version; lib.optionals final  [
     # tlnet-final snapshot; used when texlive.tlpdb is frozen
     # the TeX Live yearly freeze typically happens in mid-March
-    "http://ftp.math.utah.edu/pub/tex/historic/systems/texlive/${toString texliveYear}/tlnet-final"
+    "https://ftp.tu-chemnitz.de/pub/tug/historic/systems/texlive/${toString texliveYear}/tlnet-final"
     "ftp://tug.org/texlive/historic/${toString texliveYear}/tlnet-final"
   ] ++ [
     # daily snapshots hosted by one of the texlive release managers;
