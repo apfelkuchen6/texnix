@@ -6,14 +6,14 @@
     flake-utils.url = "github:numtide/flake-utils";
   };
 
+  nixConfig = {
+    extra-substituters = [ "https://nix.tex.beauty/texnix" ];
+    extra-trusted-public-keys =
+      [ "texnix:z8vvh6mMe7RgmStOgIWtu44Lts4GSkURrj2mL59pG6w=" ];
+  };
+
   outputs = { self, nixpkgs, flake-utils, ... }:
     {
-      nixConfig = {
-        extra-substituters = [ "https://nix.tex.beauty/texnix" ];
-        extra-trusted-public-keys =
-          [ "texnix:z8vvh6mMe7RgmStOgIWtu44Lts4GSkURrj2mL59pG6w=" ];
-      };
-
       overlays = rec {
         texnix = import ./overlay.nix;
         default = texnix;
