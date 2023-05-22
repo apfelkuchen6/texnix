@@ -8,6 +8,12 @@
 
   outputs = { self, nixpkgs, flake-utils, ... }:
     {
+      nixConfig = {
+        extra-substituters = [ "https://nix.tex.beauty/texnix" ];
+        extra-trusted-public-keys =
+          [ "texnix:z8vvh6mMe7RgmStOgIWtu44Lts4GSkURrj2mL59pG6w=" ];
+      };
+
       overlays = rec {
         texnix = import ./overlay.nix;
         default = texnix;
@@ -19,8 +25,7 @@
         lib = nixpkgs.lib;
       in {
         legacyPackages = pkgs.texnix;
-        checks = lib.filterAttrs
-          (_: lib.isDerivation)
-          (pkgs.callPackage ./tests/texlive {  });
+        checks = lib.filterAttrs (_: lib.isDerivation)
+          (pkgs.callPackage ./tests/texlive { });
       });
 }
