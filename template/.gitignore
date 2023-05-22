@@ -1,0 +1,5 @@
+build/
+*.pdf
+.auctex-auto/
+.direnv/
+result

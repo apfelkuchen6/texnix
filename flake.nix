@@ -18,6 +18,13 @@
         texnix = import ./overlay.nix;
         default = texnix;
       };
+
+      templates = {
+        default = {
+          path = ./template;
+          description = "a simple latex development shell";
+        };
+      };
     } // flake-utils.lib.eachDefaultSystem (system:
       let
         overlays = builtins.attrValues self.overlays;

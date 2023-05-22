@@ -1,0 +1,9 @@
+$xelatex = 'xelatex -recorder -halt-on-error %O %S';
+$lualatex = 'lualatex -recorder -halt-on-error %O %S';
+$pdflatex = 'pdflatex -recorder -halt-on-error %O %S';
+
+$pdf_mode = 4;
+$max_repeat = 10;
+
+$success_cmd = 'cp %D %R.pdf';
+$out_dir = "build";
