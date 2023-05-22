@@ -8664,8 +8664,8 @@
 "texdimens.doc.r61070"="1qls1hqs6ypmsg4rqa26dp98m6h7zq18wdg9n6g6895jrmj10qdz";
 "texdirflatten.r55064"="0q2m138gpk9cvfp19jvsw746mkxa613c2204qfxw1bxw8b454d7m";
 "texdirflatten.doc.r55064"="19iiznql82a34d2yhzqcp339zszbhfz9fh0h4mb11696mj8rx3v7";
-"texdoc.r66227.tlpdb67175"="0prcqgkzdzmksrr9fnqjxsg6dw9f9144l0bwaf1m3gyl85cgskm0";
-"texdoc.doc.r66227.tlpdb67175"="1xh39n2iw8zlfncvwlw2a0lbxf90awf96z5cry47dvsz81k7r6si";
+"texdoc.r66227.tlpdb67180"="0prcqgkzdzmksrr9fnqjxsg6dw9f9144l0bwaf1m3gyl85cgskm0";
+"texdoc.doc.r66227.tlpdb67180"="1xh39n2iw8zlfncvwlw2a0lbxf90awf96z5cry47dvsz81k7r6si";
 "texdoctk.r62186"="13j0c5m12if8jx8sp7hlirz33y6l2jk8lvnms7dalz52mxz8kq4h";
 "texdoctk.doc.r62186"="1k41z2lbfjsar5rl47xnk1adbcnnb4w97bzbgf2rnjhimd1gn9hq";
 "texdraw.r64477"="14vg45kci5pffvwdqnnb0dv3fznfaay3rg0fjiwfill24ifms14s";
@@ -8688,11 +8688,11 @@
 "texlive-ja.doc.r66482"="1sbv761vh7a25lpk1h4b2ar6w7cqjmafv1kbl8dwd47hnsjd7xk0";
 "texlive-pl.doc.r66576"="1id4kngpwqs53zn3pqj0hp85yf6rvha17dyb4s0m8l66cj2rzyn0";
 "texlive-ru.doc.r58426"="0c77yyfj87fajran8jppj0x8krk6b5195iscpn8z2n94spz2fcc9";
-"texlive-scripts.r67167"="099ymc4zyphg5hvn6avhbbhjg2rdw854fnrr36l8qny1fvrj9bxh";
+"texlive-scripts.r67177"="099ymc4zyphg5hvn6avhbbhjg2rdw854fnrr36l8qny1fvrj9bxh";
 "texlive-scripts-extra.r62517"="193v0r4i3p4psn5b4q0ggpgaazwn6jadjlzh5gjm3igg9k73i1wj";
 "texlive-scripts-extra.doc.r62517"="1izzy295pmxrg0sf2szxxahxm6s8bfi960mbs9z6vy7m5j1szxwl";
-"texlive-scripts.doc.r67167"="0mgj11sbnsn3cv6xaql34ckgzkp6shpsdlbzb2ni29vi823rimvw";
-"texlive-scripts.tlpkg.r67167"="0sjjj9z1dhilhpc8pq4154czrb79z9cm044jvn75kxcjv6v5l2m5";
+"texlive-scripts.doc.r67177"="0mgj11sbnsn3cv6xaql34ckgzkp6shpsdlbzb2ni29vi823rimvw";
+"texlive-scripts.tlpkg.r67177"="0sjjj9z1dhilhpc8pq4154czrb79z9cm044jvn75kxcjv6v5l2m5";
 "texlive-sr.doc.r54594"="0icavs9jkcr5b5cx5kv202k95j0ydgby9lqrw8wm9h936mbn9bkj";
 "texlive-zh-cn.doc.r54490"="1r8n9k1cy7798g1rg1hyj6g945j9649c5hhqf8hm7a7abzx7w6ll";
 "texlive.infra.r66822"="17hvalhn0kmripazzdir7qz5fv89xymv907lamf0n78fqlvc2x6z";

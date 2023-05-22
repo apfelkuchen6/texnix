@@ -2,7 +2,7 @@
 "00texlive.config" = {
   frozen = false;
   year = 2023;
-  revision = 67175;
+  revision = 67180;
 };
 "12many" = {
   revision = 15878;
@@ -37669,9 +37669,9 @@
   sha512.doc = "40e8b29f29ed61addc2b9e7ce4b73d12bf2e59f1c50c65e59e9c8cac5e6c3ef264ce2071b0d54e15f5029c101a51d0efcda0144e113aaedc714eb1300aa9635d";
 };
 "texlive-scripts" = {
-  revision = 67167;
-  sha512.run = "149cbcc31a1dd01bed55e4f1840cd7672f217e8b40147befd15f6ac8f50c0ed5505bad3e309aea01557db38844c582d314357aa1afff58ba268343a7be2b1813";
-  sha512.doc = "718110e0f3770f557c1908724daa21cfa0bbe1389462c61705386a73f946a874b48061952219fcfc66e5871a6f948fd450686cc029bdb0eea29da9945c040b9f";
+  revision = 67177;
+  sha512.run = "f242ef5e99e8c33022f9153395aa8af607c3f390e9cd7d5d4d065e00b68f588559752bc627834320390a1fbf819714e5a039a6c302b83a95de74a21036383ab2";
+  sha512.doc = "f1710cb5e422ded133631b0287b849226a9b1f7a1a1abe5e57ea1ab0581835265052da62fa02c1d1ad0af28043f4d079c1aa311927b7f02b21840bca586e0475";
   hasManpagesInDoc = true;
   hasRunfiles = true;
   hasTlpkg = true;
