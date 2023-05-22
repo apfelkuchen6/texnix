@@ -6,7 +6,7 @@
 
 set -eux
 
-OLDVERSION=$(nix eval .#legacyPackages.x86_64-linux.texlive.combined.scheme-small.name | sed -e 's/^"texlive-combined-small-\(.*\)"$/\1/')
+OLDVERSION=$(nix eval .#texlive.combined.scheme-small.name | sed -e 's/^"texlive-combined-small-\(.*\)"$/\1/')
 
 # snapshots are created on texlive.info at 0:00 UTC
 YEAR=$(TZ= date +%Y)
@@ -28,7 +28,7 @@ nix-build --no-out-link --arg pkgs 'import <nixpkgs> { overlays = [ (import ./ov
 
 cp $(nix-build --arg pkgs 'import <nixpkgs> { overlays = [ (import ./overlay.nix) ];}' pkgs/texlive/generate-fixed-hashes.nix -A fixedHashesNix) pkgs/texlive/fixed-hashes.nix
 
-NEWVERSION=$(nix eval .#legacyPackages.x86_64-linux.texlive.combined.scheme-small.name | sed -e 's/^"texlive-combined-small-\(.*\)"$/\1/')
+NEWVERSION=$(nix eval .#texlive.combined.scheme-small.name | sed -e 's/^"texlive-combined-small-\(.*\)"$/\1/')
 
 git add pkgs/texlive/{default,tlpdb,fixed-hashes}.nix
 git commit -m "texlive: $OLDVERSION -> $NEWVERSION"
