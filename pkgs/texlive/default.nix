@@ -65,7 +65,18 @@ let
       };
 
       context = orig.context // {
-        scriptsFolder = "context/stubs/unix";
+        scriptsFolder = "context/lua";
+        binaliases = {
+          context = bin.luametatex + "/bin/luametatex";
+          luametatex = bin.luametatex + "/bin/luametatex";
+          mtxrun = bin.luametatex + "/bin/luametatex";
+        };
+        postFixup =
+        # these scripts should not be called explicity,
+        # they are read by the engine and MUST NOT be wrapped.
+        ''
+          chmod -x $out/bin/{mtxrun,context}.lua
+        '';
       };
 
       cyrillic-bin = orig.cyrillic-bin // {
@@ -151,6 +162,14 @@ let
       };
 
       uptex = orig.uptex // {
+        binaliases = {
+          r-upmpost = bin.metapost + "/bin/r-upmpost";
+          updvitomp = bin.metapost + "/bin/updvitomp";
+          upmpost = bin.metapost + "/bin/upmpost";
+        };
+      };
+
+      upmendex = orig.upmendex // {
         # upmendex is "TODO" in bin.nix
         # metapost binaries are in bin.metapost instead of bin.core
         binfiles = lib.remove "upmendex" orig.uptex.binfiles;
@@ -262,12 +281,12 @@ let
   version = {
     # day of the snapshot being taken
     year = "2023";
-    month = "03";
-    day = "19";
+    month = "05";
+    day = "21";
     # TeX Live version
-    texliveYear = 2022;
+    texliveYear = 2023;
     # final (historic) release or snapshot
-    final = true;
+    final = false;
   };
 
   # The tarballs on CTAN mirrors for the current release are constantly
@@ -290,7 +309,7 @@ let
 
   tlpdbxz = fetchurl {
     urls = map (up: "${up}/tlpkg/texlive.tlpdb.xz") urlPrefixes;
-    hash = "sha256-vm7DmkH/h183pN+qt1p1wZ6peT2TcMk/ae0nCXsCoMw=";
+    hash = "sha256-atX/qT8jy4r4L4nJr0OM0+6NCKHCGZd67/3ADeH4t6s=";
   };
 
   tlpdbNix = runCommand "tlpdb.nix" {

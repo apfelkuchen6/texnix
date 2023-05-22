@@ -1,5 +1,5 @@
 { lib, stdenv, fetchurl, fetchpatch, buildPackages
-, texlive
+, texlive, luametatex
 , zlib, libiconv, libpng, libX11
 , freetype, gd, libXaw, icu, ghostscript, libXpm, libXmu, libXext
 , perl, perlPackages, python3Packages, pkg-config
@@ -24,10 +24,10 @@ let
   common = {
     src = fetchurl {
       urls = [
-        "https://ftp.tu-chemnitz.de/pub/tug/historic/systems/texlive/${year}/texlive-${year}0321-source.tar.xz"
-                "ftp://tug.ctan.org/pub/tex/historic/systems/texlive/${year}/texlive-${year}0321-source.tar.xz"
+        "https://ftp.tu-chemnitz.de/pub/tug/historic/systems/texlive/${year}/texlive-${year}0313-source.tar.xz"
+                "ftp://tug.ctan.org/pub/tex/historic/systems/texlive/${year}/texlive-${year}0313-source.tar.xz"
       ];
-      hash = "sha256-X/o0heUessRJBJZFD8abnXvXy55TNX2S20vNT9YXm1Y=";
+      hash = "sha256-OHiqDh7QMBwFOw4u5OmtmZxEE0X0iC55vdHI9M6eebk=";
     };
 
     prePatch = ''
@@ -208,18 +208,16 @@ core-big = stdenv.mkDerivation { #TODO: upmendex
     })
     # fixes a security-issue in luatex that allows arbitrary code execution even with shell-escape disabled, see https://tug.org/~mseven/luatex.html
     (fetchpatch {
-      name = "CVE-2023-32700.patch";
-      url = "https://tug.org/~mseven/luatex-files/2022/patch";
-      hash = "sha256-o9ENLc1ZIIOMX6MdwpBIgrR/Jdw6tYLmAyzW8i/FUbY=";
-      excludes = [  "build.sh" ];
-      stripLen = 1;
+      name = "luatex-1.17.patch";
+      url = "https://github.com/TeX-Live/texlive-source/commit/871c7a2856d70e1a9703d1f72f0587b9995dba5f.patch";
+      hash = "sha256-Ke7nIF/KIiJigxvn0NurMLo032afN6xNC1xhQq+OReQ=";
     })
   ];
 
   hardeningDisable = [ "format" ];
 
   inherit (core) nativeBuildInputs depsBuildBuild;
-  buildInputs = core.buildInputs ++ [ core cairo harfbuzz icu graphite2 libX11 ];
+  buildInputs = core.buildInputs ++ [ core cairo harfbuzz icu graphite2 libX11 potrace ];
 
   configureFlags = common.configureFlags
     ++ withSystemLibs [ "kpathsea" "ptexenc" "cairo" "harfbuzz" "icu" "graphite2" ]
@@ -333,6 +331,17 @@ dvisvgm = stdenv.mkDerivation rec {
   inherit version;
 
   inherit (common) src;
+
+  # the build system tries to 'make' a vendored copy of potrace even
+  # though we use --with-system-potrace (and there isn't even a Makefile generated for potrace).
+  #
+  # Creating a dummy-Makefile that does nothing is easier than fixing the build system.
+  postPatch = ''
+    cat > texk/dvisvgm/dvisvgm-src/libs/potrace/Makefile <<EOF
+    all:
+    install:
+    EOF
+   '';
 
   preConfigure = "cd texk/dvisvgm";
 
@@ -459,6 +468,8 @@ texlinks = stdenv.mkDerivation rec {
 };
 
 inherit asymptote;
+
+inherit luametatex;
 
 inherit biber;
 bibtexu = bibtex8;
