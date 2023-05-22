@@ -8,7 +8,7 @@ set -eux
 
 OLDVERSION=$(nix eval .#legacyPackages.x86_64-linux.texlive.combined.scheme-small.name | sed -e 's/^"texlive-combined-small-\(.*\)"$/\1/')
 
-# snapshots appear to be are created on texlive.info at 0:00 UTC
+# snapshots are created on texlive.info at 0:00 UTC
 YEAR=$(TZ= date +%Y)
 MONTH=$(TZ= date +%m)
 DAY=$(TZ= date +%d)
