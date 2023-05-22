@@ -22,14 +22,37 @@ jobs:
       with:
         nix_path: nixpkgs=channel:nixos-unstable
 
+    - name: Install Attic
+      run: |
+        wget https://github.com/zhaofengli/attic/raw/main/.github/install-attic-ci.sh
+        chmod +x install-attic-ci.sh
+        ./install-attic-ci.sh
+
+    - name: Configure Attic
+      run: |
+        attic login texnix https://nix.tex.beauty/ "$ATTIC_TOKEN"
+        attic use texnix
+      env:
+        ATTIC_TOKEN: ${{ secrets.ATTIC_TOKEN }}
+
     - name: Configure Git
       run: |
-        git config user.name github-actions
-        git config user.email github-actions@github.com
+        git config --global user.email github-actions[bot]@users.noreply.github.com
+        git config --global user.name github-actions[bot]
 
     - name: Update texlive
       run: |
         ./update-texlive
+
+    - name: Build
+      run: |
+         nix build .#texlive.combined.scheme-{infraonly,basic,context,full,gust,medium,minimal,small,tetex}
+
+    - name: Upload
+      run: |
+        attic push texnix result*
+      env:
+        ATTIC_TOKEN: ${{ secrets.ATTIC_TOKEN }}
 
     - name: Push commit with updated texlive
       run: |
