@@ -27,6 +27,7 @@ jobs:
         wget https://github.com/zhaofengli/attic/raw/main/.github/install-attic-ci.sh
         chmod +x install-attic-ci.sh
         ./install-attic-ci.sh
+        rm install-attic-ci.sh
 
     - name: Configure Attic
       run: |

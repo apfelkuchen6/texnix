@@ -30,5 +30,7 @@ cp $(nix-build --arg pkgs 'import <nixpkgs> { overlays = [ (import ./overlay.nix
 
 NEWVERSION=$(nix eval .#texlive.combined.scheme-small.name | sed -e 's/^"texlive-combined-small-\(.*\)"$/\1/')
 
+git diff --quiet && exit
+
 git add pkgs/texlive/{default,tlpdb,fixed-hashes}.nix
 git commit -m "texlive: $OLDVERSION -> $NEWVERSION"
