@@ -1,7 +1,7 @@
 #+title: TeXNiX
 
 *  What is this?
-This flake provides weekly updated texlive packages. The code is mostly taken from nixpkgs.
+This flake provides texlive packages updated twice a week. The code is mostly taken from nixpkgs.
 This primarily exists because the texlive in nixpkgs is usually quite outdated because the stable tlnet snapshots used in nixpkgs are only made available on the historic texlive mirror after the next version is released.
 
 This flake uses the unofficial daily snapshots provided by Norbert instead. To avoid hitting this single unofficial server too hard, we provide a binary cache:
