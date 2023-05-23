@@ -1,3 +1,33 @@
 #+title: TeXNiX
 
+*  What is this?
 This flake provides weekly updated texlive packages. The code is mostly taken from nixpkgs.
+This primarily exists because the texlive in nixpkgs is usually quite outdated because the stable tlnet snapshots used in nixpkgs are only made available on the historic texlive mirror after the next version is released.
+
+This flake uses the unofficial daily snapshots provided by Norbert instead. To avoid hitting this single unofficial server too hard, we provide a binary cache:
+
+#+begin_src nix
+nix = {
+    settings = {
+        substituters = [ "https://nix.tex.beauty/texnix" ];
+        trusted-public-keys =
+            [ "texnix:z8vvh6mMe7RgmStOgIWtu44Lts4GSkURrj2mL59pG6w=" ];
+    };
+};
+#+end_src
+
+
+* How do I use this?
+** as an overlay
+Add the ~inputs.texnix.overlays.texnix~ overlay provided by this flake to your nixpkgs overlays (non-flake users can import ~overlay.nix~).  Then use it as you would use the ~texlive~ in nixpkgs.
+
+** install imperatively into a profile
+#+begin_src  bash
+nix profile install github:apfelkuchen6/texnix#texlive.combined.scheme-full
+#+end_src
+
+** in a project flake
+You can create a flake based on a simple template with:
+#+begin_src  bash
+nix flake init --template github:apfelkuchen6/texnix
+#+end_src
