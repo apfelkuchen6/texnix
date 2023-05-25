@@ -1,7 +1,7 @@
 params: with params;
 # combine =
 args@{
-  pkgFilter ? (pkg: pkg.tlType == "run" || pkg.tlType == "bin" || pkg.pname == "core"
+  pkgFilter ? (pkg: pkg.tlType == "run" || pkg.tlType == "bin" || pkg.tlType == "fmt" || pkg.pname == "core"
                     || pkg.hasManpages or false)
 , extraName ? "combined"
 , extraVersion ? ""
@@ -229,19 +229,8 @@ in (buildEnv {
   ''
     texlinks --quiet "$out/bin"
   '' +
-    # generate formats
+    # generate psfonts.map / pdftex.map
   ''
-    # many formats still ignore SOURCE_DATE_EPOCH even when FORCE_SOURCE_DATE=1
-    # libfaketime fixes non-determinism related to timestamps ignoring FORCE_SOURCE_DATE
-    # we cannot fix further randomness caused by luatex; for further details, see
-    # https://salsa.debian.org/live-team/live-build/-/blob/master/examples/hooks/reproducible/2006-reproducible-texlive-binaries-fmt-files.hook.chroot#L52
-    # note that calling faketime and fmtutil is fragile (faketime uses LD_PRELOAD, fmtutil calls /bin/sh, causing potential glibc issues on non-NixOS)
-    # so we patch fmtutil to use faketime, rather than calling faketime fmtutil
-    substitute "$TEXMFDIST"/scripts/texlive/fmtutil.pl fmtutil \
-      --replace 'my $cmdline = "$eng -ini ' 'my $cmdline = "faketime -f '"'"'\@1980-01-01 00:00:00 x0.001'"'"' $eng -ini '
-    FORCE_SOURCE_DATE=1 TZ= perl fmtutil --sys --all | grep '^fmtutil' # too verbose
-    #texlinks "$out/bin" && wrapBin # do we need to regenerate format links?
-
     # Disable unavailable map files
     echo y | updmap --sys --syncwithtrees --force | grep '^\(updmap\| /\)'
     # Regenerate the map files (this is optional)

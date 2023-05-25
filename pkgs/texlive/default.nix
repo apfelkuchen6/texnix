@@ -79,6 +79,18 @@ let
         '';
       };
 
+      cslatex = orig.cslatex // {
+        # cslatex requires babel to generate its format:
+        # texlive-cslatex.formats> ! LaTeX Error: Encoding scheme `IL2' unknown.
+        # texlive-cslatex.formats> See the LaTeX manual or LaTeX Companion for explanation.
+        # texlive-cslatex.formats> Type  H <return>  for immediate help.
+        deps = orig.cslatex.deps ++ [ "babel" ];
+      };
+
+      jadetex = orig.jadetex // {
+        deps = orig.jadetex.deps ++ [ "etoolbox" ];
+      };
+
       cyrillic-bin = orig.cyrillic-bin // {
         scriptsFolder = "texlive-extra";
       };
@@ -269,13 +281,14 @@ let
             tlDeps = map (n: tl.${n}) (attrs.deps or []);
           } // lib.optionalAttrs (attrs ? formats) { inherit (attrs) formats; });
     in {
-      # TL pkg contains lists of packages: runtime files, docs, sources, binaries
-      pkgs =
-        [ run ]
-        ++ lib.optional (attrs.sha512 ? doc) (mkPkgV "doc")
-        ++ lib.optional (attrs.sha512 ? source) (mkPkgV "source")
-        ++ lib.optional (attrs.hasTlpkg or false) (mkPkgV "tlpkg")
-        ++ lib.optional (attrs ? binfiles) (mkPkgBin pname version run attrs);
+      # TL pkg contains lists of packages: runtime files, docs, sources, binaries, formats
+      pkgs = let
+        pkgs' = [ run ] ++ lib.optional (attrs.sha512 ? doc) (mkPkgV "doc")
+          ++ lib.optional (attrs.sha512 ? source) (mkPkgV "source")
+          ++ lib.optional (attrs.hasTlpkg or false) (mkPkgV "tlpkg")
+          ++ lib.optional (attrs ? binfiles) (mkPkgBin pname version run attrs);
+      in pkgs' ++ lib.optional (attrs ? formats)
+      (mkPkgFormats pname version pkgs' attrs);
     };
 
   version = {
@@ -401,6 +414,37 @@ let
         ln -s "''$(realpath '${source}')" "$out"/bin/'${alias}'
       '') binaliases))
       + postFixup);
+
+  mkPkgFormats = pname: version: pkgs:
+    { formats, deps, ... }@args:
+    runCommand "texlive-${pname}.formats-${version}" {
+      # metadata for texlive.combine
+      passthru = {
+        inherit pname version;
+        tlType = "fmt";
+      };
+      nativeBuildInputs = [
+        libfaketime
+        (combine ({
+          pkgFilter = pkg:
+            pkg.tlType == "run" || pkg.tlType == "bin" || pkg.pname == "core";
+          "${pname}" = { inherit pkgs; };
+        } // (lib.genAttrs
+          ([ "scheme-infraonly" ] ++ deps ++ lib.catAttrs "engine" formats)
+          (pkg: tl."${pkg}" or { pkgs = [ ]; }))))
+      ];
+    } (lib.concatStringsSep "\n" (map (fmt:
+      with fmt;
+      let
+        ismetafont = lib.elem engine [ "mf-nowin" "mflua-nowin" ];
+        fmtdir = if ismetafont then "metafont" else engine;
+        extension = if ismetafont then "base" else "fmt";
+      in ''
+        mkdir -p $out/web2c/${engine};
+        faketime -f "@1980-01-01 00:00:00 x0.001" \
+          ${engine} -ini ${lib.escapeShellArgs (lib.splitString " " options)}
+        mv *.${extension} $out/web2c/${engine}/${name}.${extension}
+      '') formats));
 
   # create a derivation that contains an unpacked upstream TL package
   mkPkg = { pname, tlType, revision, version, sha512, extraRevision ? "", postUnpack ? "", stripPrefix ? 1, ... }@args:
