@@ -4,7 +4,7 @@
 , freetype, gd, libXaw, icu, ghostscript, libXpm, libXmu, libXext
 , perl, perlPackages, python3Packages, pkg-config
 , libpaper, graphite2, zziplib, harfbuzz, potrace, gmp, mpfr
-, brotli, cairo, pixman, xorg, clisp, biber, woff2, xxHash
+, brotli, cairo, pixman, xorg, clisp, biber, woff2, xxHash, mupdf
 , makeWrapper, shortenPerlShebang, asymptote, useFixedHashes
 }:
 
@@ -348,8 +348,18 @@ dvisvgm = stdenv.mkDerivation rec {
   configureFlags = common.configureFlags
     ++ [ "--with-system-kpathsea" ];
 
-  nativeBuildInputs = [ pkg-config ];
+  nativeBuildInputs = [ pkg-config makeWrapper ];
   buildInputs = [ core brotli ghostscript zlib freetype woff2 potrace xxHash ];
+
+  # TODO: Find a better solution. This hack results in double wrapping
+  fixupPhase = ''
+    runHook preFixup
+
+    wrapProgram $out/bin/dvisvgm \
+      --prefix PATH : "${mupdf}/bin"
+
+    runHook postFixup
+  '';
 
   enableParallelBuilding = true;
 };
