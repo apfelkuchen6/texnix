@@ -422,6 +422,7 @@ let
       passthru = {
         inherit pname version;
         tlType = "fmt";
+        inherit formats;
       };
       nativeBuildInputs = [
         libfaketime
@@ -470,8 +471,6 @@ let
             hasHyphens = args.hasHyphens or false;
           } // lib.optionalAttrs (tlType == "tlpkg" && args ? postactionScript) {
             postactionScript = args.postactionScript;
-          } // lib.optionalAttrs (args ? formats) {
-            inherit (args) formats;
           } // lib.optionalAttrs (args ? hasManpages) {
             inherit (args) hasManpages;
           };
