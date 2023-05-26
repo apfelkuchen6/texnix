@@ -19,7 +19,7 @@ with lib; let
   all = concatLists (map (p: p.pkgs or []) (attrValues texlive));
 
   # fixed hashes only for run, doc, source types
-  fods = sort (a: b: a.name < b.name) (uniqueByName (filter (p: isDerivation p && p.tlType != "bin") all));
+  fods = sort (a: b: a.name < b.name) (uniqueByName (filter (p: isDerivation p && ! elem p.tlType [ "bin" "fmt" ]) all));
 
   computeHash = fod: runCommand "${fod.name}-fixed-hash"
     { buildInputs = [ nix ]; inherit fod; }
