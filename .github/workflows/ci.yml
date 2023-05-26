@@ -49,6 +49,10 @@ jobs:
       run: |
          nix build .#texlive.combined.scheme-{infraonly,basic,context,full,gust,medium,minimal,small,tetex}
 
+    - name: Check
+      run: |
+         nix flake check
+
     - name: Upload
       run: |
         attic push texnix result*
