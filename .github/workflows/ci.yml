@@ -41,6 +41,10 @@ jobs:
         git config --global user.email github-actions[bot]@users.noreply.github.com
         git config --global user.name github-actions[bot]
 
+    - name: Update flake inputs
+      run: |
+        nix flake update --commit-lock-file
+
     - name: Update texlive
       run: |
         ./update-texlive
