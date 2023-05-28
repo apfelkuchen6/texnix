@@ -260,6 +260,10 @@ in (buildEnv {
       FORCE_SOURCE_DATE=1 TZ= faketime -f '@1980-01-01 00:00:00 x0.001' luatex --luaonly mtxrun.lua --generate
       FORCE_SOURCE_DATE=1 TZ= faketime -f '@1980-01-01 00:00:00 x0.001' luametatex --luaonly mtxrun.lua --generate
     fi
+
+    if [[ -e $out/bin/luaotfload-tool ]]; then
+        luaotfload-tool -u
+    fi;
   '' +
   # Get rid of all log files. They are not needed, but take up space
   # and render the build unreproducible by their embedded timestamps
