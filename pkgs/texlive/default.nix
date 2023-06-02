@@ -12,6 +12,48 @@
 , recurseIntoAttrs
 }:
 let
+  version = {
+    # day of the snapshot being taken
+    year = "2023";
+    month = "05";
+    day = "30";
+    # TeX Live version
+    texliveYear = 2023;
+    # final (historic) release or snapshot
+    final = false;
+  };
+
+  # The tarballs on CTAN mirrors for the current release are constantly
+  # receiving updates, so we can't use those directly. Stable snapshots
+  # need to be used instead. Ideally, for the release branches of NixOS we
+  # should be switching to the tlnet-final versions
+  # (https://tug.org/historic/).
+  urlPrefixes = with version; lib.optionals final  [
+    # tlnet-final snapshot; used when texlive.tlpdb is frozen
+    # the TeX Live yearly freeze typically happens in mid-March
+    "https://ftp.tu-chemnitz.de/pub/tug/historic/systems/texlive/${toString texliveYear}/tlnet-final"
+    "ftp://tug.org/texlive/historic/${toString texliveYear}/tlnet-final"
+  ] ++ [
+    # daily snapshots hosted by one of the texlive release managers;
+    # used for non-final snapshots and as fallback for final snapshots that have not reached yet the historic mirrors
+    # please note that this server is not meant for large scale deployment and should be avoided on release branches
+    # https://tug.org/pipermail/tex-live/2019-November/044456.html
+    "https://texlive.info/tlnet-archive/${year}/${month}/${day}/tlnet"
+  ];
+
+  tlpdbxz = fetchurl {
+    urls = map (up: "${up}/tlpkg/texlive.tlpdb.xz") urlPrefixes;
+    hash = "sha256-lmjrW+glv3Qscg2EaRW8FilGmfRkwD+uCn9gQcJZF1M=";
+  };
+
+  tlpdbNix = runCommand "tlpdb.nix" {
+    inherit tlpdbxz;
+    tl2nix = ./tl2nix.sed;
+  }
+  ''
+    xzcat "$tlpdbxz" | sed -rn -f "$tl2nix" | uniq > "$out"
+  '';
+
   # various binaries (compiled)
   bin = callPackage ./bin.nix {
     ghostscript = ghostscript_headless;
@@ -290,48 +332,6 @@ let
       in pkgs' ++ lib.optional (attrs ? formats)
       (mkPkgFormats pname version pkgs' attrs);
     };
-
-  version = {
-    # day of the snapshot being taken
-    year = "2023";
-    month = "05";
-    day = "30";
-    # TeX Live version
-    texliveYear = 2023;
-    # final (historic) release or snapshot
-    final = false;
-  };
-
-  # The tarballs on CTAN mirrors for the current release are constantly
-  # receiving updates, so we can't use those directly. Stable snapshots
-  # need to be used instead. Ideally, for the release branches of NixOS we
-  # should be switching to the tlnet-final versions
-  # (https://tug.org/historic/).
-  urlPrefixes = with version; lib.optionals final  [
-    # tlnet-final snapshot; used when texlive.tlpdb is frozen
-    # the TeX Live yearly freeze typically happens in mid-March
-    "https://ftp.tu-chemnitz.de/pub/tug/historic/systems/texlive/${toString texliveYear}/tlnet-final"
-    "ftp://tug.org/texlive/historic/${toString texliveYear}/tlnet-final"
-  ] ++ [
-    # daily snapshots hosted by one of the texlive release managers;
-    # used for non-final snapshots and as fallback for final snapshots that have not reached yet the historic mirrors
-    # please note that this server is not meant for large scale deployment and should be avoided on release branches
-    # https://tug.org/pipermail/tex-live/2019-November/044456.html
-    "https://texlive.info/tlnet-archive/${year}/${month}/${day}/tlnet"
-  ];
-
-  tlpdbxz = fetchurl {
-    urls = map (up: "${up}/tlpkg/texlive.tlpdb.xz") urlPrefixes;
-    hash = "sha256-lmjrW+glv3Qscg2EaRW8FilGmfRkwD+uCn9gQcJZF1M=";
-  };
-
-  tlpdbNix = runCommand "tlpdb.nix" {
-    inherit tlpdbxz;
-    tl2nix = ./tl2nix.sed;
-  }
-  ''
-    xzcat "$tlpdbxz" | sed -rn -f "$tl2nix" | uniq > "$out"
-  '';
 
   # map: name -> fixed-output hash
   fixedHashes = lib.optionalAttrs useFixedHashes (import ./fixed-hashes.nix);
