@@ -8699,7 +8699,7 @@
 "texlive-zh-cn.doc.r54490"="1r8n9k1cy7798g1rg1hyj6g945j9649c5hhqf8hm7a7abzx7w6ll";
 "texlive.infra.r66822"="17hvalhn0kmripazzdir7qz5fv89xymv907lamf0n78fqlvc2x6z";
 "texlive.infra.doc.r66822"="0572wl3pyqx0awpkp6fd0fdyh9ya7m2vfj0sm32cjr8vzba8yqh8";
-"texlive.infra.tlpkg.r66822"="1rr7djvv6vgj7g1vvwrjvil57khc5c0faf4s7a0ryd8fmbhx20r2";
+"texlive.infra.tlpkg.r66822"="1jqmxqndpn29pg4xf12b8p81sm0prn2k8lqwdzh79wa3xf41bcf1";
 "texliveonfly.r55777"="03i9pzqv2dz4z9nlq60kzwiyfvzhhaalhczqa9146jp4wvcib9l3";
 "texliveonfly.doc.r55777"="1fsabzkbcrk42rsp8ssx0kvap31y1rqnkq582129946q3njvmylx";
 "texloganalyser.r54526"="0icav63nll0lj85cqlbg1lx1r6ysjf1lyv5bydxr3flr1c7yqx2r";
@@ -9028,6 +9028,7 @@
 "tlcockpit.source.r54857"="0kldzbbyjvj0n60jgff8y6y27nxnzihjyq10gnx2gi62qn9bia7i";
 "tlmgr-intro-zh-cn.doc.r59100"="127fad3aq66rnn4jkccyw7qc8pdcwapyjb6lj9kn49nqcy3jm6nk";
 "tlmgrbasics.doc.r66271"="0zychfw7zvx7pj8zp89zg0rjablm8p6ja2nibbdbgvan0gfc1m97";
+"texlive-tlpdb.tlpkg.r67243"="1cn5mq8yip9xrhy9sif5fwqyijhnqp03qlrpxjdz783jb5b6yy5q";
 "tlshell.doc.r66771"="1h5mk09sakbmgsppl9fnry28xnzqya3bmp3r1nkzg44cv7kl98vz";
 "tlshell.tlpkg.r66771"="1dvb7jjnmdh0k4dfkm4f89zapkjb31z2364m0vapmvfq4z84vpyq";
 "to-be-determined.r64882"="0yrs04ik67wj1wyn4cl3wfabczvz3ga3h7sfbhni9x4438br48gh";

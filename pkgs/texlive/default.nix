@@ -294,9 +294,39 @@ let
 
       # tlshell is a GUI for tlmgr, which cannot be used in the Nix store
       tlshell = removeAttrs orig.tlshell [ "binfiles" "hasRunfiles" ];
+
+      "texlive.infra" = orig."texlive.infra" // {
+        scriptsFolder = "texlive";
+        deps = [ "texlive-tlpdb" ];
+
+        # these aren't in tlpdb, so we add them manually
+        binfiles = [ "tlmgrgui"  "tlmgr" ];
+        binAliases = {
+          tlmgrgui = "tlmgrgui.pl";
+          tlmgr = "tlmgr.pl";
+        };
+
+        postFixup = ''
+          substituteInPlace $out/bin/tlmgr --replace 'if (-r "$bindir/$kpsewhichname")' 'if (1)'
+        '';
+      };
     }; # overrides
 
-    in lib.mapAttrs mkTLPkg overridden;
+    in lib.mapAttrs mkTLPkg overridden // {
+      texlive-tlpdb.pkgs = [
+        (runCommand "texlive-tlpdb" {
+          inherit tlpdbxz;
+        }
+        ''
+          mkdir $out
+          xzcat "$tlpdbxz" > "$out/texlive.tlpdb"
+        '' // {
+          tlType = "tlpkg";
+          pname = "texlive-tlpdb";
+          inherit (tlpdb."00texlive.config") revision;
+        })
+      ];
+    };
 
   # create a TeX package: an attribute set { pkgs = [ ... ]; ... } where pkgs is a list of derivations
   mkTLPkg = pname: attrs:
@@ -485,7 +515,7 @@ let
           if [[ "$tlType"  == "tlpkg" ]]; then
             tar -xf "$src" \
               --strip-components=1 \
-              -C "$out" --anchored --exclude=tlpkg/tlpobj --exclude=tlpkg/installer --exclude=tlpkg/gpg --keep-old-files \
+              -C "$out" --anchored --exclude=tlpkg/tlpobj --exclude=tlpkg/gpg --keep-old-files \
               tlpkg
           else
             tar -xf "$src" \
