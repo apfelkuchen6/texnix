@@ -461,7 +461,7 @@ let
             pkg.tlType == "run" || pkg.tlType == "bin" || pkg.pname == "core";
           "${pname}" = { inherit pkgs; };
         } // (lib.genAttrs
-          ([ "scheme-infraonly" ] ++ deps ++ lib.catAttrs "engine" formats)
+          ([ "texlive-scripts" "kpathsea" ] ++ deps ++ lib.catAttrs "engine" formats)
           (pkg: tl."${pkg}" or { pkgs = [ ]; }))))
       ];
     } (lib.concatStringsSep "\n" (map (fmt:
