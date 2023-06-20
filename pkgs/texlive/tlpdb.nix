@@ -2,7 +2,7 @@
 "00texlive.config" = {
   frozen = false;
   year = 2023;
-  revision = 67377;
+  revision = 67413;
 };
 "12many" = {
   revision = 15878;
@@ -892,11 +892,11 @@
   version = "6.101";
 };
 "animate" = {
-  revision = 67123;
+  revision = 67401;
   stripPrefix = 0;
-  sha512.run = "ecfd81b5471753e9df4b9e4e69712ec54226cc9235db8da1066bf803c5f516b9ef876bfddfd6513c529103e65e52464b9c219d86f1876ca545c35b32233f61e1";
-  sha512.doc = "c2dc41ce1bf5aa604106ce2ecffead484121307e258a427001ca41337ea7012c134a4aff4db5a7cdb60f6fb243d7fb232e392b70bc8b06ae8f4f7f5a49372be0";
-  sha512.source = "7ee55f0afd9377de5cb76f14f856cb347776f902134562b52a251f87915d88094619180b398929037e4f0db5a33f5811866eb5c6070ab606579bca6bf8108e6f";
+  sha512.run = "dabe8762a0329d46ca8987621a59c38183e713c1c257e2cfcd2bbe36bd49bb7cf23b3e75e421f4bf023db2558bb9503d550efa882d77b229114649a15ffcafbc";
+  sha512.doc = "857f611cfccc96ed1ae63f47128e9b7b4240428f86ebfdb6f2b79c5f0c76858e7a917321330d841059be02c3d7ef45036f0a2ed441e27abfe68ccbaa61568607";
+  sha512.source = "d0b799be895882ba64d200f4c77d8794212fecce55b8c65e874b77587ed4bc186930f9abf1f662d0c7c7e8383f34afc3679f11679d22c035539d93b8dcd19e7b";
   hasRunfiles = true;
 };
 "annee-scolaire" = {
@@ -2969,12 +2969,11 @@
   hasRunfiles = true;
 };
 "beautybook" = {
-  revision = 67376;
+  revision = 67391;
   stripPrefix = 0;
-  sha512.run = "07361a282b62b501e4b9d37fd46575b951db023e61e15710ae0fc9c2859246362cf1817982bf1c9bda8067d1e420cbc87a9814eba968ad062c980a0995e75abe";
-  sha512.doc = "6eb928979c09b3d9e95de10bcc5a80782351396d23463367d827f83823a77bc34387b75156ebd0935a1c6a63a10ad1fd99d5af7323dcf0414648ca54cc8f3d4c";
+  sha512.run = "fefcbd21a139c2e2309f924040685ca3c50bb5cbb9e051b4a31fa9b4d8b4f183a6ecbcec4e62f7ed546f06afbb7ccb5580c39ba5f59176ac744ff9d0490c0523";
+  sha512.doc = "b48be3559e57297e704384ad05ba482e2e206dfb8a89702052599d95315c1e43efb5061de9a63d94f20d932db7e19e3a8af7b7e00064f05b069bf4ea1fe94435";
   hasRunfiles = true;
-  version = "6.1";
 };
 "beebe" = {
   revision = 67371;
@@ -3163,13 +3162,13 @@
   "convertgls2bib"
 ];
 "bibarts" = {
-  revision = 64579;
+  revision = 67407;
   stripPrefix = 0;
-  sha512.run = "df6f803918f6beaa20ddf581bb531c6f9cb488a77262dc075a00e2ab5e8aedc107697c17cdc4b0310702db3b565dcba4fea68fee9b9c0a2d6a9109ce3c8d2ef0";
-  sha512.doc = "ec614687a713c8c1542fc8a28aba9bf837eda9c91d63e6236ad021d2eb13d052ab37d078263fc9f25ad3279b7e721cbf39de4cdc94db4c18dd06625e5fe10507";
-  sha512.source = "b4d0e27e0bcbfcc140c6a28a5d0f7b9150ce0c8ae07d7a6e96d7669c3f91da5e41e8d52e53f9927a00cbc534694e45dd787ec6786627cba9d81fb841d0aa10d6";
+  sha512.run = "358492693511d2de25fc7e080c862e1aa6a6ba40655fbf64991092a4a56c76a35f9fa9f8e0035fa042f0341f8fa9f13a5615079a2c9c56af36aaba4f41385865";
+  sha512.doc = "d708263bf3d867e075281e0cdedca007fbcaf8cc333a8c7c0c9a0b79e68bce1c100b263a740e232a5f84861726dda947914a7c4ba52d87315163db9528c2c544";
+  sha512.source = "b1d8043b2f7c49e6bfee9b1b82f361450878f6059cef790f12e9a26279caf25f2bf446b4b70c1882478503586b700e7b2e78a6c631264b1c2498ec493ba20ad3";
   hasRunfiles = true;
-  version = "2.5";
+  version = "2.6";
 };
 "bibcop" = {
   revision = 67278;
@@ -3874,6 +3873,13 @@
 "bibtexu".binfiles = [
   "bibtexu"
 ];
+"bibtools" = {
+  revision = 67386;
+  stripPrefix = 0;
+  sha512.run = "72472e2c51a0b984feae71dd1bacd72880df1438406301219c80f1dc6a8702b0d7c1e2bfad7ffdbd025e58c14a069335d4f5d6f1fe981d5bca259a6eba94bd4b";
+  sha512.source = "3507bf7da29aad37a43cdd1ab2668908e227a2002438fb161c822fbac48be0e6b120070d6866fa553205ed404375d160e3a8b756c0681fb6a3e3b5600ac7a7b1";
+  hasRunfiles = true;
+};
 "bibtopic" = {
   revision = 15878;
   stripPrefix = 0;
@@ -6550,7 +6556,7 @@
   sha512.run = "4241bc3a3ef21502faa9a2e0b16295126c357fc15813a625306552b40f9da804164abccce642f4ec1e677092f81d61381958b87fcf515120a12f9b7a19055370";
 };
 "collection-bibtexextra" = {
-  revision = 65257;
+  revision = 67386;
   stripPrefix = 0;
   deps = [
     "aaai-named"
@@ -6639,6 +6645,7 @@
     "biblatex2bibitem"
     "biblist"
     "bibtexperllibs"
+    "bibtools"
     "bibtopic"
     "bibtopicprefix"
     "bibunits"
@@ -6718,7 +6725,7 @@
     "xcite"
     "zootaxa-bst"
   ];
-  sha512.run = "db80edc251a62547b401d922c954a40dc3887b01a59952bf20829b67953e26083c98249dba83157b0e9db4b0b2b2802f5965d9360b332d45fe4d69762ef38c62";
+  sha512.run = "652554e2038407c987a3aaf73f206b228728ec7848c737de8c6267abb0b20054846fcc74400fbf4a802c8efa1dff2d4174e9d4725b41a7816e25c9c8d1cfd848";
 };
 "collection-binextra" = {
   revision = 66381;
@@ -6834,7 +6841,7 @@
   sha512.run = "595821a44d10775d5fd38e292d4cd0135daf1e2a59131afd9d6fb600f319be3e2365f2b997c04e9150d39483c4ce9e030395afb60a3be272fa2a976537c77e73";
 };
 "collection-context" = {
-  revision = 67175;
+  revision = 67412;
   stripPrefix = 0;
   deps = [
     "collection-basic"
@@ -6861,7 +6868,6 @@
     "context-handlecsv"
     "context-layout"
     "context-letter"
-    "context-lettrine"
     "context-mathsets"
     "context-notes-zh-cn"
     "context-pocketdiary"
@@ -6879,7 +6885,7 @@
     "context-visualcounter"
     "jmn"
   ];
-  sha512.run = "33598362314127474a06e4d392f9fd084e5eea39520cd58c4d1c9cb5675b9814c2b736d46bae825124b42f576f9b4c57c8620cfccde78dff92f245f39212d1ed";
+  sha512.run = "41548fba89276395649f7c96f36d9f8ae2979a9bfe045cb3dedad24cb2f991dc6f672e3f6ddc8fda9e188e0cf2c59e089da46f3c2bafe0ef091d9ccb9c8ab6f4";
 };
 "collection-fontsextra" = {
   revision = 66805;
@@ -8239,7 +8245,7 @@
   sha512.run = "c73220abd1545907a1d8de37cb534d2c6bd2534f1b55f03c069f39f535c326d4b1852f8415d9876ca52645db939ad7a11c55f550a2096ccd4b8dd8be6a4114d6";
 };
 "collection-latexextra" = {
-  revision = 67376;
+  revision = 67384;
   stripPrefix = 0;
   deps = [
     "2up"
@@ -9385,6 +9391,7 @@
     "romanbarpagenumber"
     "romanneg"
     "romannum"
+    "rorlink"
     "rotfloat"
     "rotpages"
     "roundbox"
@@ -9735,7 +9742,7 @@
     "zwgetfdate"
     "zwpagelayout"
   ];
-  sha512.run = "0d4a5c044c64033458102e7f6d2e88131edb5c0419459c52e4726f5093e4d2a16ebaaaa8e48e3e47feb7d0533be2df92a7fbcbb676347819f98028f8440f5840";
+  sha512.run = "38041698a307cb4680596c816f4c53eab8a270639d61fa0b73d30cd561c29177b3fd3bb4f2aee226cba14060052491e4a69fe0c7309768799540d1d5f426b100";
 };
 "collection-latexrecommended" = {
   revision = 65512;
@@ -10771,7 +10778,7 @@
   sha512.run = "508276fe37018f3d9773fc7cda0cb37edcdd28e9cf8ab54ed5be16b07c2066de4626a561bbe387c7bba0fb82d4102be406efd721a4b5dc90110b8560083d2b07";
 };
 "collection-publishers" = {
-  revision = 67281;
+  revision = 67402;
   stripPrefix = 0;
   deps = [
     "aastex"
@@ -10907,6 +10914,7 @@
     "matc3mem"
     "mcmthesis"
     "mentis"
+    "mitthesis"
     "mlacls"
     "mluexercise"
     "mnras"
@@ -11055,7 +11063,7 @@
     "yb-book"
     "york-thesis"
   ];
-  sha512.run = "d7f755270cbdc61510a314a289bccbc0b228d749375f48b091776954cbf9165553db378ae00b8c8bd376a4ddad2bb2d60a731298f7cf807166d783b40afde501";
+  sha512.run = "5862aefaedd9f18a52af8fb38e9d100bcd8904301d6cac416fd78bc0f6ff21c32edd02497c316cc5d7f69407d1dc19ea5d635d7583bd1f7fa906acfeda4cb30d";
 };
 "collection-texworks" = {
   revision = 54074;
@@ -11731,16 +11739,6 @@
   sha512.doc = "94e1bf68371f3e8c426cfff5c471f93c86ce51fdd92dfad59669d32cc73d86de606113ece55d13a0f25ac4a26f16916407de9175b84acc79ba107156c20cd20a";
   hasRunfiles = true;
 };
-"context-lettrine" = {
-  revision = 47085;
-  stripPrefix = 0;
-  deps = [
-    "context"
-  ];
-  sha512.run = "79e4e246a7bb0a300db53425e2769a3ef61bc0249ce57840c0b9037805e86eadbd1ef4ab8a110fd806584393feef00f498418732cfd53922aed6df67c561e535";
-  sha512.doc = "ab32697b6c309b1099b809c33182ffc48bb3019c8d520269cbb616b61e8f20678cc2cf4e7e971e06cadb22ffcee0d502deedf21aa95d8d372d1840e4fb4a6591";
-  hasRunfiles = true;
-};
 "context-mathsets" = {
   revision = 47085;
   stripPrefix = 0;
@@ -12158,12 +12156,12 @@
   version = "1.01";
 };
 "covington" = {
-  revision = 67269;
+  revision = 67392;
   stripPrefix = 0;
-  sha512.run = "8a3cdb6343c94e668b04f32798732fecded560b3ba0be045305fe176e2e1031cb4e6dd827e6ebdcccdbbb3ee2717c0a41317e95bdf925ab85dcd127aa2aaac7b";
-  sha512.doc = "48421b052498f5b2b1cb9a9a6cdca41ec7f4184eb0b3300e8b76e1dc2cb1ec891e6c766c1ccec14590b57a439858f694b96c30929fab19a0c5f5656b5976ca5a";
+  sha512.run = "51f8743a921d3f9f86ebdc80a96da5032293789eb6e97b59df2f88c96433acabb7153077472d4afe35be33638e046499a7426e4800a8f21f6d4d0b6c8051f88d";
+  sha512.doc = "51bb929ed0638dcf0f6ebc8e95d78dc4b95e5371e4e5b0f14f003acb32bd05d2387ea425a900b515e354980ae7a604b4a2228111875f2bf98fe10c8514f7ebb3";
   hasRunfiles = true;
-  version = "2.10";
+  version = "2.11";
 };
 "cprotect" = {
   revision = 21209;
@@ -15364,7 +15362,7 @@
   version = "1.2";
 };
 "eolang" = {
-  revision = 66274;
+  revision = 67393;
   stripPrefix = 0;
   deps = [
     "amsfonts"
@@ -15375,11 +15373,11 @@
     "pgfopts"
     "stmaryrd"
   ];
-  sha512.run = "25f30865e3464fe4fd609f6b21bf309dfa969577702813c28581bee61092412942265a66d7cb4e72bfc0a29b84ad4f6cb87a7e4bc3b389ed442503ea2e3a7b82";
-  sha512.doc = "8a8ead918b79980e1fb97911a45b2a1c4f8e7548bc770df50c89c9785827a8f07444a0fb7e2d826fc076746fbf5b4deec7b52f54cc3c1a96e265e322e8507cdc";
-  sha512.source = "232007b58b295d186a2d6ea10caac649eb3ae219cf074dcb7efd647371b45656ca767c4213562e9e582033aaf1eccf854a174b231242b05b917c04d42a0cbf3e";
+  sha512.run = "2270a85b210ed25bfa27de7603c98f00799128afd3616dfb9871b3ae1975085212724043552717bb3d4925aa8cb19672563b4a620ebae10de80433b974f08d15";
+  sha512.doc = "6450182085423d2b51c85cde73a700dddb9e10e1288fc39c4959676a380e5a1f2b691e9312eae23c252e2a98fb25a0ad6262a50413979d81b35687dea0296e7d";
+  sha512.source = "816735be5d669eb401734555f2008908864704972cde919691827655cea3136d6a5b4e76940c9482be5847290ad5790c2f747e9dab2ad07dc6492d953416fe59";
   hasRunfiles = true;
-  version = "0.12.1";
+  version = "0.12.2";
 };
 "epigrafica" = {
   revision = 17210;
@@ -22013,11 +22011,11 @@
   hasRunfiles = true;
 };
 "jlreq" = {
-  revision = 66362;
+  revision = 67400;
   stripPrefix = 0;
-  sha512.run = "e69996585a00040de962bc36df2e58bf79d2d3fd76bfcd9d8f05703975e02f5af5e542bbbdd6300534c59f83f9a07d0c4350bf3bee0d73c60c25fc30ec417855";
-  sha512.doc = "2592c71c31c7356ae691b994bea1357a306d126d12897a1de2a81f82aa7feee8a4fd672d91661f9ed19f9e107ef78c5f85d235a32ddc0024aeee71fbca207aa9";
-  sha512.source = "648b5e94737f61b03ffaae36800365cdb9beee5489553ff47c5e78e700c1e82bb3636a54a8f12d2f3cfe377acf53661dbc97c062c43b3adcb505d4f67dc4fe9e";
+  sha512.run = "7421f665a77b88d942d145dd63d0ea92c3f2c24815c564ea4eb13828bd9bc45cac1362dca4ae2e69a3f53fa9b79e4a495f87656bd560c951b407c34fab69a266";
+  sha512.doc = "2c3cf0af124dd6d92d41bd89a25884983c691c4a9a2a72c33754eda92244f37ccb310aa330f8b55d7a18c45d4bfdbeba60358d0e5b95bf7ffa3ce588f6a68b4d";
+  sha512.source = "0f455dad9f954f8e8d84bfda0fe704b0cf6a384f6c0a215299d9529d10950340071fbbee98f88a9f12a9863d3979246533a47e5a6e7fcdb71dbfc3c165079d74";
   hasRunfiles = true;
 };
 "jlreq-deluxe" = {
@@ -22839,14 +22837,14 @@
   hasRunfiles = true;
 };
 "l3kernel" = {
-  revision = 67294;
+  revision = 67394;
   stripPrefix = 0;
   deps = [
     "l3backend"
   ];
-  sha512.run = "d349b25da65cb93ed329c3ad195c4360e08f4f14c12e32fb6984fc493e0b2c94bd85fc2e0769ee9a8f03ab9fa4f30f5d05b674b34baf2be3425646c24708ed1a";
-  sha512.doc = "f535553cfac0c1538d0c7e0bab99ae14f329495a9aec535a456a8338cc6d4821aa97233439ca9d8224aa48041da241514febdc1a64625efacbcfda3fbe02613a";
-  sha512.source = "0cb93827de1d96a983581b4bc3e94e9680190a539b1b0e37037a3376ab468e6a0fc41273c3486574431be8f74ddb36623c7526fa840772f04ae0393e18d22c8f";
+  sha512.run = "9134a7ad21f63b170043fd3a9738399596a9ed21c6c5951a957ce9ad6fc142d22d69aa6482a91a029d18d3dab0d2111febe5656029292373277922beabf79e81";
+  sha512.doc = "b6e8505422c90560d3da658f71c1c6a823511c490bdc05b82060b2317ec18b6444f57b94e4531f77ff36ff3e02167bc029a7f9309ca2314769b5b02f75201426";
+  sha512.source = "553b5c23a2a4cf8425c25c95b284ac043abdc387c6062ea66dd17d4539b85a0ffa6412b9538ae2ab9d6402c45ff1b838ee80f58093ef19258f2b770a404e1c1a";
   hasRunfiles = true;
 };
 "l3packages" = {
@@ -23001,7 +22999,7 @@
   version = "2.0b";
 };
 "latex" = {
-  revision = 67314;
+  revision = 67413;
   stripPrefix = 0;
   deps = [
     "latex-fonts"
@@ -23009,10 +23007,11 @@
     "luatex"
     "pdftex"
   ];
-  sha512.run = "4034708828a1d5883b3d7fe4db1e6b8933ea01d3f83df04c5fd359c982a15d349bc5535a4a799aed62606375acbdb01146755fafa8145c23bf860085267e26ca";
-  sha512.doc = "1f8fb299ff2de2fb3973f96150abdb48a72c119784db899804c3ee7384fe01486108812d5d64f76352137901866a6c58f8d15f9fad2523afe665e04170db46ee";
-  sha512.source = "f6a521ca11d210ddf93d1a58bdf40033eb2f868368a02b5ab7ad0622a2e71d46cda8d262781d0bef6331a50a1224ee2cc4a46e673c3482391c06e5f0cc63eaa5";
+  sha512.run = "380a878afb044307148044b7b7bcdf9bd88c34d5e68f495300027bdc714dd76a971fd201884dc9acd40ba07c12fef09641a9184eec1b0a6fd6a5359016c7aaf4";
+  sha512.doc = "b1e026798795df6d49ac20a8c05fdce86007f830f01ccb8bc21160205524e8f5d5078484c7f9b8beff4c7d30b9b05102c2cb6e6a596f2f4f662543ae339e28e8";
+  sha512.source = "6e8bd583a0c44ba6e3100a188bd665efbf8bdc8b01b6cae56f7399ef07f1c67b9339b259d23c014b5569aca2cad386a951eacab90972fcdde9fddaf73fdc7f0c";
   hasRunfiles = true;
+  version = "2023-06-01_PL1";
 };
 "latex-amsmath-dev" = {
   revision = 67328;
@@ -26987,6 +26986,14 @@
   hasRunfiles = true;
   version = "2.0";
 };
+"mitthesis" = {
+  revision = 67402;
+  stripPrefix = 0;
+  sha512.run = "5c6cf34b21915d3d8c0f254eef535b54ec06066e2fc1c6b9aa41c6603ce3ff92647e17d99d0d23bc032dc5ccc2f5383e5a5f83dec2b02690b0773e2edc70f4d8";
+  sha512.doc = "569439c2db6b1744a41f413079ba33d3d50ee7877c274c2acae68204b1b4c3deae292db02a6c4d79c663109c99379499a2bd842e2a6ef0849542aee5708c67ca";
+  hasRunfiles = true;
+  version = "1.00";
+};
 "mkgrkindex" = {
   revision = 26313;
   sha512.run = "bbb0b306f30b4fe898f5d5bfdcb1eaa4d2d88a95cfa1ea0da51957aad1de028928562c930180f6c0a7d66b5cdfd804d52afbd229e7ca43173477a229cefff192";
@@ -28545,13 +28552,13 @@
   version = "r11";
 };
 "nostarch" = {
-  revision = 67333;
+  revision = 67408;
   stripPrefix = 0;
-  sha512.run = "3c210ed91f40727e729610b1bc4ff02331704c0075d421f783571fcd35dacdf0969e85c0ab3cb1c3fe59fcec0d5aeb54d30066d445fc7460005b72d0795aebed";
-  sha512.doc = "57d6a57338addb1659ec044e15e74b7d1b5d14962d7701987ed7e5e6033d442cd0db808ee816f97d70161a7838bee6f8a59e04957192323a38f3e64c5fa799df";
-  sha512.source = "811b15c896be4d401a6a039f2f6e4be03f5998d6caf8af36706c0a7ee1c81ca4690ab87feead69bf18b125f45b5d5c373ef249828ccf3377d4cd3bff76f8233c";
+  sha512.run = "89a690fe3cd70fe025c688c67a368fc87e9d1d9e1772b615ce40a930b7f2d4122ffcbead4396e29f25f445c6b3f5bf30882b12143805cf96f2a4c2f6568c6468";
+  sha512.doc = "86aad82acf23760e71f5cbbf8ad2bccad725f7d6eae89c06b6a32c919761480be3a797260d5ebe53eaaac6ac5f91e2fb41808d0df70ab1053ba946f905db738b";
+  sha512.source = "6e38f80a461300e150538822a806ab11c7db04a9a228530d48c58c2e513273ec3ed72217f6895ed813817b67dd2fdf743e37dc2c633b148b4b675b4acbade24b";
   hasRunfiles = true;
-  version = "2.2";
+  version = "2.3";
 };
 "notes" = {
   revision = 42428;
@@ -31249,13 +31256,13 @@
   version = "0.1.3";
 };
 "postnotes" = {
-  revision = 67345;
+  revision = 67383;
   stripPrefix = 0;
-  sha512.run = "981c8b7b0e021e9b92c2bf418454ab399d952937a57c55f6b915423fa9d7dab13391b6d3d263346a9dcf0d1f2fa7240ee0b5cbd5af0dd3413e7bb092ca6bb6b5";
-  sha512.doc = "e996cb110389dff232172e3b261eb2477bca28a5a30f4bc5e030f77ecb74ada86ad8842045bffce01f667c2d17c1a39dc8a091f8ba00cf39e5a86719176e1f0f";
-  sha512.source = "e23a120eeb30aa6b56be3ca821174ec09da235f352dda786c9a94642e6f0aecc7acae3e0e35ec3eae4ed76baa9dcf515485f13670fd2384f3cc9ea3575921489";
+  sha512.run = "6c2356f3af6ec5ac6719a657fdc1022b8630832a93ae3d38debc3f5cab8436f280f48ff2190706d8561c74ed8283f9f8c1fff72f327bf9c72079491789c50893";
+  sha512.doc = "28b218b060983edcf7f3a334d48f9980aa336545dd9076582604094565b9340c95abcf84f37865081d69e94b1e6f0925b4a50d4d680ac82dd5091b463bdc8cb4";
+  sha512.source = "9fd062e54498fffebcf4c5987431ee8ab012ad18d756de3160e9e822fdef6b922de26b1e5c51e7e40f266805509778afda3398bb8201edd6fbcb4c5fe3d1aaf8";
   hasRunfiles = true;
-  version = "0.2.4";
+  version = "0.2.5";
 };
 "powerdot" = {
   revision = 59272;
@@ -31562,12 +31569,12 @@
   version = "1.04";
 };
 "prooftrees" = {
-  revision = 52221;
+  revision = 67399;
   stripPrefix = 0;
-  sha512.run = "f455c85a30ca4882829e0d2b74f202b129333962843a799c575f080de9b67c1c543db10f012198655760bbe894eae2149eeba1322de3392bac0eaa9a89fe00df";
-  sha512.doc = "ff1ec0f5f9112e7fd09fee4e3ffba06bd281c4578a055e831c64a8edbec234bd69c6e920745fe6e4fbcbb12b27189465d4fc41c9dae4f1ff80d5096ef9dc3cee";
+  sha512.run = "ee4feb832296a512e180b4d38e5989a87d6884c3c84ea2b224754201e42fe2fb6c4f68461a0cf3d3cda10b263c88c6da9e082572093f53ce2e8c62473d4707a5";
+  sha512.doc = "67cbbd3068410bf152d54c2f25821b5672c33b68e76fc7ebe02f0df160cc658b20e072379035f090beb34a7d4d5ca21809965bd8e44a554e5ae65039a12f4850";
   hasRunfiles = true;
-  version = "0.7_svn_8641";
+  version = "0.8_svn_9582";
 };
 "properties" = {
   revision = 15878;
@@ -33804,6 +33811,14 @@
   hasRunfiles = true;
   version = "1.0b";
 };
+"rorlink" = {
+  revision = 67384;
+  stripPrefix = 0;
+  sha512.run = "38883e080bb9d1db97df31417e0fb9e4ccc49173e1717f03b37e9373d96d0ee26a4aac9f594c9d8fd9aecf960721e6fdb238c2be8cc885a38aef7ef8f6dbbf5a";
+  sha512.doc = "2956c9fd4a637f0bcbf37969850c8ee2cf7bef764314712927cce47db0d9cb0e6f2891c8bfabc5ba6334385c379e0d045d8f505aaf7a941ad58415dc004f4a51";
+  sha512.source = "1eacddc7a21c1deb899b69061f77a37d8619e52b2bc3e0fe488f41352f4264a23678ed55cb0436e3c62523cf62b5177d14ecf65524befe14ebc4d54e02d2fc8c";
+  hasRunfiles = true;
+};
 "rosario" = {
   revision = 51688;
   stripPrefix = 0;
@@ -35444,12 +35459,12 @@
   version = "1.6a";
 };
 "simpleicons" = {
-  revision = 67266;
+  revision = 67382;
   stripPrefix = 0;
-  sha512.run = "e118d0ce6f8c61fa35d93a1ad40bb417aa95bb23d2ae49ab466ccb8a0a2130449abf63b5538af579a889393a2431d827f32bda7d313fcdd356ae53cdb58c1597";
-  sha512.doc = "043409b49e23caa684c14e39be2e2d6f82c167ba5e1bef726ec45c2ab3b2357e59250ab8e0d93df8f6be16dbd6a70a1bc831ca295cb9973a3e3829d11862116a";
+  sha512.run = "6b7d9f37eaf909aff7cdfeaf9a0a53fc667bf4c56f3c442307db54f0e21c7b0981ea4d1bd16e0e1a8ce051f6ee9448e8b0f570a746955ff6f2d9437697f5fcd6";
+  sha512.doc = "3d72141d5e2a69689b00ae6aa1f511c700aee5f6b9c5d4d038d876cbd36a8b6a506270b4f355e78bff0a12438f2f163b1cb9ec58ccffbd6f0b3a53b3c18d3c6a";
   hasRunfiles = true;
-  version = "9.0.0";
+  version = "9.1.0";
 };
 "simpleinvoice" = {
   revision = 45673;
@@ -37171,12 +37186,12 @@
   version = "2.40";
 };
 "tcolorbox" = {
-  revision = 66620;
+  revision = 67409;
   stripPrefix = 0;
-  sha512.run = "c69235b995ba0c77390160dccaa08228acfa45e419bf30aa78d3d1f7a8c1edb55637a9d46ade95811ede7866a88d3fdc176f3f88eec5cbd12b146ed11674c6ed";
-  sha512.doc = "3a7776172474ac4fb3cf8562da6f913f31c591fedec9c064a4c2595830713ac34a5a7d9ddd80b843ad49961e7733639541edc57151cd7c6232090bc75a53322f";
+  sha512.run = "8b711b558da383ea870482dde8217cc5ba9ec901c4ed22edfcebb2ad2467ecf6e32583d37407e7a7f951900ddeb6307ed8978cb67eddbd135bf2276169b2b8a2";
+  sha512.doc = "3aeb12b350ef5bcd6391d5cef0c2e53872c77d998fe5eec4fb1b61078caae100de9e3a7d8b650ac77fc44566d471e1fd1c8f666179937f3174c47cc4b13f03da";
   hasRunfiles = true;
-  version = "6.0.3";
+  version = "6.0.4";
 };
 "tdclock" = {
   revision = 33043;
@@ -37506,10 +37521,10 @@
   "tex4ebook"
 ];
 "tex4ht" = {
-  revision = 67349;
-  sha512.run = "d64e3f43d83e1d8c0757c1c990331e8f280b5d4ea9e3ef2a8131f0506519c09ba5d0bf0017698500319fc2e0679283b9584b04cf60a3dcdc303adf0d891e6736";
-  sha512.doc = "6866d0b29a0310d903d24bf0fd156d9a488cb9bd84ff532f5274ec6bfe1747bb2710d052d8cf66e6dc4ca63fa7f14c41299e29ba3e5e0995bfe30b234de0dd61";
-  sha512.source = "f5a2530d93c59a8f9d56086a0a31b5ee934daee90a9699dddb22a1693c2b84c854b41ec412d1e0ecd572197221f4e8faa59617244e2fe88da025c41226cdb726";
+  revision = 67387;
+  sha512.run = "218290ecee70e3e5ec391bcd693f26fbe97323681bfd9c20373715ee548c855f664ff1c7c7f43d6a9725621b6a05c8153a3cfdf9009a328418b8cbc89db27d0e";
+  sha512.doc = "7b971031fd06dd9a6bbaed6c1f56f7328147a4ec4aadb7f00042b6154bf83a6bd15ce761d5e3723dbe77793b69e4b5936d3977e99ff3c3cd78bb73561f9feccb";
+  sha512.source = "cdbbd96e098c24bf8f5a8a5fc135fb27909659be2935f1ce6cb346920a7671476862cfe6303135045755ce27fac4e8f3e28fb56ff728cb1694a6df8a3ad31208";
   hasRunfiles = true;
 };
 "tex4ht".binfiles = [
@@ -37759,9 +37774,9 @@
   sha512.doc = "40e8b29f29ed61addc2b9e7ce4b73d12bf2e59f1c50c65e59e9c8cac5e6c3ef264ce2071b0d54e15f5029c101a51d0efcda0144e113aaedc714eb1300aa9635d";
 };
 "texlive-scripts" = {
-  revision = 67371;
-  sha512.run = "a255cb985afe97b1c3e9913e84d202eb105af9b4a2646ef868a866c2f290e8cc24f225b201f27d3a79b74a48795ee3a1673841e8e82f006476ac69248ec9d368";
-  sha512.doc = "58de825df414867d6b01fc48a91f8964bde2d0ffd88f3163e118f6410f6054e90839cfd0489a0264c5cdc7e830dbc33c449c3456948c8fa926ebca67a23ef8a0";
+  revision = 67406;
+  sha512.run = "66e0848db768dceca8475d789d94e94198d77b887ae1bcd0a79a3322f4f0f0eca31287004b0eeacef9af316d943524f7cc20d8f93175348d4ddf379a27c7e287";
+  sha512.doc = "6e78cf8fc437bfbf2c2025b08da8720a1c71289f020a37e553898ff7d089de044c62df066bec9aa83636e31951a8075582a0484430ec07991c84617f8086ebab";
   hasManpagesInDoc = true;
   hasRunfiles = true;
   hasTlpkg = true;
@@ -39566,12 +39581,12 @@
   version = "1.0";
 };
 "tuda-ci" = {
-  revision = 66938;
+  revision = 67410;
   stripPrefix = 0;
-  sha512.run = "44b5f7d9caf6d5ad7263c35d3aacba3f16342f66ece32b4c2c171a1230b14631483444eac786fbea381b7c0c8f1a9629790713fdeef6d6af4ff00b3981644214";
-  sha512.doc = "403586ddd82ca17d464473107dde631576fd70991c7f5792ed706cd8a50886d244c1ea608d827ac264555dc8927c7e8d86c2055ce8ae37531a76933da047e043";
+  sha512.run = "c1484832b051b59444277fbc8dbc9d7e039cdee9f9b6233e644a6b690c1f1418e277a0e329f42c7b73a8a1d2136b098a41cd346f938ad62a126f1ceaf54eed95";
+  sha512.doc = "787b4e1c8ade84ec1c62539f88a91a8dd7a4f97ba6ace3119ee2e02435d3065817bbefa3a2f3bc7c3aa9516b29168ce2696d6d564cbd38068565ba49bc63d277";
   hasRunfiles = true;
-  version = "3.30";
+  version = "3.32";
 };
 "tudscr" = {
   revision = 64085;
@@ -40140,12 +40155,12 @@
   version = "2.1";
 };
 "unbtex" = {
-  revision = 64634;
+  revision = 67385;
   stripPrefix = 0;
-  sha512.run = "156376638cfaeb2b73d576d83ec48aecb12083981e7916db7ea9cea19edbd1f62c1a4e7b15c60c35930737f317b47b321a551625a083481e12c5da11f50b7774";
-  sha512.doc = "6e8ff704903c4c397a9fa36fdd8272166482430cd519e6b538692da29af54cc2f2e8f9cd283278a394b578c782323ca3d902a01d24c6fc713206c7d70ee54fde";
+  sha512.run = "f98ca8a3a247ed7060396185c1e4837f3f0ee6db56bc0cdfa469809c8e2faebeae090ed64a4ccccc7eaf9ff32086a49e59e7016d9f30bbf2e9cbf15dddfe1a4e";
+  sha512.doc = "7b9916d2d93803b3be1a221c9c6e1c4461000a88b04fda75deb55e79e9703f8e4f220f60f30736cecd78814f989249cc71990f9d50484bd3cd582c7e742ec1c8";
   hasRunfiles = true;
-  version = "1.2";
+  version = "1.2.1";
 };
 "undergradmath" = {
   revision = 57286;
@@ -42703,13 +42718,13 @@
   version = "0.3.3";
 };
 "zref-clever" = {
-  revision = 67369;
+  revision = 67411;
   stripPrefix = 0;
-  sha512.run = "ae13569040bede6aff2dc4f24a8c33ab0ab0aa00c021ac6f0601156d471303f0f67b50d92a9565ac397d8d0810717c1bf9eb7722ab536ed6973b38875c2168d5";
-  sha512.doc = "dff178ad66a4d51df0a1e2d84d2b1d21804a5bfc9c2c58a9f60ae012604afce2d5a4cb24d04607cc3d8e438fb42976914d22db6be46e13ca8ddd2f694e8cce76";
-  sha512.source = "70e6c61e517b39106c8a4d4d65926d37cffab274c188d9b3605040c685501f5b2d77ce4a803c08648cd9a020958a05bbf7616ffeec1de647fcdf378652cf091c";
+  sha512.run = "4c51e19085055c543fec763b0ed71c020fb6f5ef76f913e0c0d99a02a2b7220046b05c3b7458adbc2dfc68c2fd5e29f4ddb510aed21bb2adb91e954b22d7571e";
+  sha512.doc = "4f805b9944d537f46abe03bc906305de2d4721c0a897df1764661f2c62e06630e8df02acf519ab302aec38dfb73b9692694008fcb969a9bc5279410e4816d03f";
+  sha512.source = "0820d1ae9ade67eeff8e3c9f610f60f71b0b12f68e68f1a38deb90c66982df401bb45b13512bc31243dfe617605309ba452ce33270413597501dc67bd9c6b2f8";
   hasRunfiles = true;
-  version = "0.4.0";
+  version = "0.4.1";
 };
 "zref-vario" = {
   revision = 67377;
