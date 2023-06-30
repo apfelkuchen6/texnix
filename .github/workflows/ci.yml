@@ -23,18 +23,11 @@ jobs:
         nix_path: nixpkgs=channel:nixos-unstable
 
     - name: Install Attic
-      run: |
-        wget https://github.com/zhaofengli/attic/raw/main/.github/install-attic-ci.sh
-        chmod +x install-attic-ci.sh
-        ./install-attic-ci.sh
-        rm install-attic-ci.sh
-
-    - name: Configure Attic
-      run: |
-        attic login texnix https://nix.tex.beauty/ "$ATTIC_TOKEN"
-        attic use texnix
-      env:
-        ATTIC_TOKEN: ${{ secrets.ATTIC_TOKEN }}
+      uses: icewind1991/attic-action@v1
+      with:
+        name: texnix
+        instance: https://nix.tex.beauty
+        authToken: '${{ secrets.ATTIC_TOKEN }}'
 
     - name: Configure Git
       run: |
