@@ -2,7 +2,7 @@
 "00texlive.config" = {
   frozen = false;
   year = 2023;
-  revision = 67806;
+  revision = 67839;
 };
 "12many" = {
   revision = 15878;
@@ -319,6 +319,13 @@
   sha512.source = "6de10a1ddcb65be76594e7389d47316e066aec3a747ef7a61e15fa0e670d914dae3d2ef777c9574e8b85c5d9628784df7f4dc61f589917dbae571f31416bad08";
   hasRunfiles = true;
   version = "0.3";
+};
+"addtoluatexpath" = {
+  revision = 67821;
+  stripPrefix = 0;
+  sha512.run = "91d4f85e45181674b6ab2bda5ff3632aaab4abc0066c5026478d41c0205e021f12c3cb833c8c339c02e4e033aed351a5891f8527b95cc33f26ba534aeeaa785b";
+  sha512.doc = "ccc8ca7fc9423192a68260b6f441fa7be8a1144bdff8e0eee478f01e2c09d0e54f2a25d7a7fb935f76803003842f16e41916861d9a69e3ea2bca5724b1be5411";
+  hasRunfiles = true;
 };
 "adfathesis" = {
   revision = 26048;
@@ -4588,13 +4595,13 @@
   version = "1.0";
 };
 "buctthesis" = {
-  revision = 64004;
+  revision = 67818;
   stripPrefix = 0;
-  sha512.run = "c8988be5f140ee2739c2fc2365d1306ce2f47480d47c85c6f2f7cc525cf5ba5b8683a99bc4d5167f78839852ca800ed07caa98a3498893dad92051ca3ba3f7b8";
-  sha512.doc = "a0f41589d447a81f9fbec183b30e832883a7cffff16ca538c74ccecafd59e41a67e1b3d2ae355eaf8d04c3c6417326606db5ad6752e45f1f031cd7b26ebdb0b0";
-  sha512.source = "b7be46e4266544c18bdd76838a3f2635c6cadcd6aa93879cf977ec37264c9438cb3a1e9b79b5e567d460bde2193038b4f88f6f5446519666b33c170b8c698d12";
+  sha512.run = "7c27a0f982a2727c8ad7dc98052f48ddb73d37ff27b89eb53f8e33338f67fdb99dba2cdbc843cb628ea725fb7ca7d0188ec5f53c6b863c4707e8b174c8b788c2";
+  sha512.doc = "edcf0ac0b5e9ea86df731fee1d2388960b997b7278fac5b88dde6e3820ed3ff488c6ab156dfbca169fb9dd11cf49c5ba5c17516ac2f874bfb3d825426f0fa5ad";
+  sha512.source = "bbb105930a740ffecc9c2f4ebf3a3a206c49c3128b44bc9d96c97ec0715da1fe152bab9ffdbb3a3d8fd3689702bb7091056dcccb4b428d54ad0853f9ede97ada";
   hasRunfiles = true;
-  version = "1.4.1";
+  version = "2.0";
 };
 "bullcntr" = {
   revision = 15878;
@@ -4862,6 +4869,14 @@
 "cachepic".binfiles = [
   "cachepic"
 ];
+"cahierprof" = {
+  revision = 67826;
+  stripPrefix = 0;
+  sha512.run = "be90f746d4a2f9344a2fef5513a4eecbf43d86d1a20137a8d7046438fbf03d0d1cb1b1f05b2bffbda7eb0a76cd8c98ab1e38229c5c1fea669348530b94d6e09e";
+  sha512.doc = "f00ece79e79acce234b6829679e5293e8c046aeef9bb38f232f330c03b04f0e6aa82618046a23e356ade0e1b71027d5d0e105b8f513c87511b5b9aef6e434ba8";
+  hasRunfiles = true;
+  version = "0.91";
+};
 "caladea" = {
   revision = 64549;
   stripPrefix = 0;
@@ -5798,10 +5813,10 @@
   version = "1.0";
 };
 "chronology" = {
-  revision = 37934;
+  revision = 67840;
   stripPrefix = 0;
-  sha512.run = "6fca0b31511366c1e39f6518bf5c6e10bfb503a8a901d9e1167866a40e2fbb9d2a6e109f48e146bbaaa2c017ac96e82196a5f49a91c6c9f52eee2633fd5c0737";
-  sha512.doc = "ce0417e339724dfd97c227f104d9cd0b697c1cb7a5c586c890c3e938bbdaf5db2984fa83a09d983970c1105751cd012e544807a74bf0a35ecd2074a97d0520a4";
+  sha512.run = "4e634e09a60f5e7789475f42afd6ca9a5b3c4a9977bcd4921b093baab6a857a753c73055f14afec5c7bcb09310547f4f22981b65a2dcf58edd12a8ca38a4b7d2";
+  sha512.doc = "140036692b18c1fd24dae78426afa8e4fb8644ff93acdb9c37b541762eeda2f1b42204fb3758f70e6468ed425f2386fc044bd7a4b1e2c8872fac63130d2100e3";
   hasRunfiles = true;
   version = "1.1.1";
 };
@@ -7802,7 +7817,7 @@
   sha512.run = "5fa87f174fc372c21b80ebe6b097525218da63892bc8445a29c24f2bfb015b0f04c100467f85e6c9e16a27ad26e31f00832d7712ebea7dec8631a730a95a9759";
 };
 "collection-langfrench" = {
-  revision = 67459;
+  revision = 67826;
   stripPrefix = 0;
   deps = [
     "aeguill"
@@ -7816,6 +7831,7 @@
     "bib-fr"
     "bibleref-french"
     "booktabs-fr"
+    "cahierprof"
     "collection-basic"
     "droit-fr"
     "e-french"
@@ -7851,7 +7867,7 @@
     "visualfaq-fr"
     "visualtikz"
   ];
-  sha512.run = "e2040a759ee375c3895b3938e120791894c874a3817f17b596030c40cb4c14f209441edaf1a0ddfc6f473cd562f5ffc45184ca195d5830d9926584cb4e994aed";
+  sha512.run = "7ad5cea42a6bbf5d46a35450ff3575c2ac19f95c464adf9c7716356e9a8a776fd94f18eccfa07220432f026724c8b4affc349b0fbdc49e7f1f8540ba6156c084";
 };
 "collection-langgerman" = {
   revision = 55706;
@@ -8256,7 +8272,7 @@
   sha512.run = "c73220abd1545907a1d8de37cb534d2c6bd2534f1b55f03c069f39f535c326d4b1852f8415d9876ca52645db939ad7a11c55f550a2096ccd4b8dd8be6a4114d6";
 };
 "collection-latexextra" = {
-  revision = 67756;
+  revision = 67814;
   stripPrefix = 0;
   deps = [
     "2up"
@@ -9452,6 +9468,7 @@
     "sepfootnotes"
     "seqsplit"
     "sesstime"
+    "setspaceenhanced"
     "sf298"
     "sffms"
     "sfmath"
@@ -9756,7 +9773,7 @@
     "zwgetfdate"
     "zwpagelayout"
   ];
-  sha512.run = "bfa9b05a3d8dd5dd297789db7675f7c8d896daba5a3b9a27004e509d7973a8a6d2e346e7659501f14da7db55b0cc8f9853281dadde5b48b9ee2f0af883d05557";
+  sha512.run = "ae2b0795e0ec61277179dff9073e572e8b59052cfa6f6d4f50ee1ec6155e4a3ecc715ee2301f34e097abfc527aaca30aa7b9f9bb69c5330178ee9afc2ff4fe81";
 };
 "collection-latexrecommended" = {
   revision = 65512;
@@ -9839,10 +9856,11 @@
   sha512.run = "952fe1be5136c0fded29381fe58935dedfe2c0f338f38d280c2a69bb718e2b93520f6f328f98d98a9161bbf106bda77cbddc4277e401a4f33e480dd3a7316483";
 };
 "collection-luatex" = {
-  revision = 67550;
+  revision = 67821;
   stripPrefix = 0;
   deps = [
     "addliga"
+    "addtoluatexpath"
     "auto-pst-pdf-lua"
     "barracuda"
     "bezierplot"
@@ -9943,7 +9961,7 @@
     "uninormalize"
     "yamlvars"
   ];
-  sha512.run = "741f1b490883381bc88913b165f02126c140facfc70b95cf120feb90c5981808da2a07bd060668006cfe94e386bfe5842d650a27ace7356b1adc67b709991c1f";
+  sha512.run = "cc7a3c664610d5a58bd46353058b1bcac59a9fb945319206bef05382ad568b74fd50a49a9fbfcdd9cfc6ceebd86cdd8b623e65e22b9904b52da3d945b2fa6481";
 };
 "collection-mathscience" = {
   revision = 67779;
@@ -11729,13 +11747,13 @@
   hasRunfiles = true;
 };
 "context-handlecsv" = {
-  revision = 67115;
+  revision = 67840;
   stripPrefix = 0;
   deps = [
     "context"
   ];
-  sha512.run = "d60e83ff5f8202a2ff9e35cfd69c949e6ffddf2e0ee535f853e48bdb0315dde88be68887eeb6c6534ee5a1ba7b20a8e3683810682942e7687ab91677ca5c1244";
-  sha512.doc = "09629a19cc560df784bec4baca08aa538fe0ef9a545cf29859047f612ca9e3323fa5c53cbf85bcadc33a61318c00b803877a2004c649b6de0026cd33f97510cf";
+  sha512.run = "339690348c384f4c6c055551f9800864eac11311b6ac40145ba6e6f7d9dfce678d63ce397f625190c2732522a95c16359b500f3656d8df758f9f5fcb4a65d11f";
+  sha512.doc = "88de99b78d6359206172fe08f54398debab967974a3cbeea85f0d0d43146265781241957209031ae9316d8d735dc107d53da5589ebdb70c4639bd2f7b85ffdee";
   hasRunfiles = true;
 };
 "context-layout" = {
@@ -22710,12 +22728,12 @@
   version = "3.35";
 };
 "kpfonts-otf" = {
-  revision = 67581;
+  revision = 67811;
   stripPrefix = 0;
-  sha512.run = "6b62a491c7a7e8081210ecce03aa393718f1c56478dfd19f95bf7f8e31e1a5f6ba2da99f9165c68c71bda85b2fdd78827f5f3a4913833d969f3e775a2050daf7";
-  sha512.doc = "2728c933c07156b213dc55242d41a9a777f1a4bd4df5f703c9a288e990705a854b20473e88e31edd94181c03959e1cba66d2f39ae82dce801624203c9d491a92";
+  sha512.run = "afa444e525103a1b8657570a56551c4974ac94151aad9c0bf98a80fffcd454fd228a683aacd842ec7ed2fe39840081d715e9aca00525582cf0f7d90b610167d7";
+  sha512.doc = "ae7a86909eb7f513ebb65c13acc28eeb4d11c1af4a941d4a60e180f51c75def00bd097473fc1851403889b19990abe54ff13b3104f69ba333f25c3c4989f6328";
   hasRunfiles = true;
-  version = "0.55";
+  version = "0.56";
 };
 "ksfh_nat" = {
   revision = 24825;
@@ -25227,12 +25245,12 @@
   version = "2.75";
 };
 "lualinalg" = {
-  revision = 67805;
+  revision = 67840;
   stripPrefix = 0;
-  sha512.run = "c985f1cbc9a9dfcc505f70ff31226e1436527b0dba17136517dc6c9e3cb396018ff221e72e73f9207df95fae40bef46a6de4f7a96aa5d4a8a62c94128cef3227";
-  sha512.doc = "fd56ddbcf8cedce35a10293882e281e9ba0c18907af865b3dcc3d3eed6f1d44732765a94de561f9a9a7306c070b0cc112b3a54791990cc42add467ac00a49c98";
+  sha512.run = "d50164f416fa7bb5a13f614f1f927c58ed326a1ff532060066c27d2859d5693fa5702108f6199ae543ba022fb3195348c4d05830b0894ccf9afeed83ac46685d";
+  sha512.doc = "069ccd88dd8538efe219a92da84a31b027950013152255dc2b6e2fbb725723877904147a3716f741aadcc23ff735b1ad1eb33210447d4e72e0a7847b35ac5e59";
   hasRunfiles = true;
-  version = "1.3";
+  version = "1.5";
 };
 "luamathalign" = {
   revision = 63226;
@@ -25244,12 +25262,12 @@
   version = "0.3";
 };
 "luamaths" = {
-  revision = 67806;
+  revision = 67817;
   stripPrefix = 0;
-  sha512.run = "12f0a09199ebc96f46166dc526372dc5ffc3138b48be40ac86cd39b489c02be3a290a5b14efbe3a508434e4766b4a8eebb46e7bebca01083399844226c14bd93";
-  sha512.doc = "0081c013c04089f5b2f709c531174ab8af5094ba3454f5610e70c5803682e316a6fdd766f88d3fa052497c78d35a0588c305aeb81df43221efbde71226f0ec6d";
+  sha512.run = "61ca23cbd54e859c9de857c4927f84779bdeb6bf58ceb67ce70d8ed41c56d36b170d914f9d1d6998e3bb32a3559cd39f04c445820d09a3d7e1fb5866ee4d0549";
+  sha512.doc = "e8300a5c63c04a895a0ff68e571821301056f74a9e5af85e13110078e45859910c8a477ca34e006cb6c08812fdb3188b8c03f5422ebbd5de10b5f8beeddefe5b";
   hasRunfiles = true;
-  version = "1.1";
+  version = "1.3";
 };
 "luamesh" = {
   revision = 63875;
@@ -25268,13 +25286,13 @@
   version = "1.0";
 };
 "luamplib" = {
-  revision = 66762;
+  revision = 67840;
   stripPrefix = 0;
-  sha512.run = "d76fbb6ed2654e4ece2a00aa636f43e99797eb66c93a320a0c4b24a85f7300d35db74c3273383b1244a8b89c835fb1b6e83223f8e13968a293ccbbe6f68d03d4";
-  sha512.doc = "611cc10ec2bd8fc142b7aca1f7af7462ff1fc3dfb747dd5facda36cacc0016bc6733edc8354e2a474585454b09f888e93835ffeb69fbdea3f6da7f00f6332759";
-  sha512.source = "d34bf6f41848734d96400934e98f9593c0f07d37a835e669a2ad94f8522e3b19d691accfc3707a3b00cbd11c65deac32a61ed6d3fe59c9f0f8b4e33d3cee6859";
+  sha512.run = "9eb35c8dba754f922a447c598fe8ca6c7d3e8915e1fdde9d91c1222897335dd124dbf9eed7bd51a5ed710de52c5bb20882868c5e99463257d9294247c3f1a767";
+  sha512.doc = "301f5b1d1dbfd36d052732ab829740a82994313f1e8541c4cc723f7e19dbef9f3cd59325a4976e4b3a19acb7230318ed9c4048e15a791a0572e0e67d791b17ba";
+  sha512.source = "d9710f532ea651112386a7cddc62149cd82df0a80a287a7d6f8c14792ebd7c2bf573cfea87ac7af27eea3c7f84b1caba14514579acb4bb3f1b0e203c4cefa93e";
   hasRunfiles = true;
-  version = "2.24.0";
+  version = "2.25.0";
 };
 "luanumint" = {
   revision = 67746;
@@ -27236,10 +27254,10 @@
   version = "1.4";
 };
 "modeles-factures-belges-assocs" = {
-  revision = 50010;
+  revision = 67840;
   stripPrefix = 0;
-  sha512.run = "870cd893fbb3bd36d9af8a35487fb47f9afeee75c6093fe3fe9167c4db4f0365499e0fd87b4b3debb0212076d1248902014fa374df3fca79108965bf0c3bb07b";
-  sha512.doc = "f879904a96322990beafd7e444040b11fb9d69e93d73df5e5a159d70fd8e033d9a137e1bb4c54e4bbc4f8e5b04151336bed77aab0b46fcbeb531b346855df920";
+  sha512.run = "0b0e546eef6640b70dbb07bbe6401983fd0547357dad47a854b4c87119727d79f5ef54789394ebd5923474d2ad95e59a55d9340cf84811b5f2d5a94e406e8c7f";
+  sha512.doc = "0bee390919ce8ce6082c2373f639db7de1029d0830d4cf9f1c807ef044e0ba27c8f0e4dd37677df63c03b64ad00b27825cd703973776377f844324846a908edd";
   hasRunfiles = true;
   version = "1.0.1";
 };
@@ -28701,10 +28719,10 @@
   version = "1.02";
 };
 "novel" = {
-  revision = 67086;
+  revision = 67840;
   stripPrefix = 0;
-  sha512.run = "7312093ccb697168d4d576a60e0ff09d835e570f11c33381bba528351078bf70a74e2c045c45b29c232a2efb6d54147cd5741879d9eb0e9451dc53756b3ef68c";
-  sha512.doc = "5e41b8ae8ba51f6220a9f790d40589dd89e5034052d499abe826e41b25e9bacb950f7649cdf574eb388fd1191c392fde99334b4b9045ea5381f735e17ce8b1a5";
+  sha512.run = "6cc12f1fc327ce040948ceea9456c51d603ef2634b4d5335d50c267d8e0fb7bf4153f51f92b7965569f04c707dea3b2bce136520a51e4b7bd08b5c7c1f35b001";
+  sha512.doc = "5f6b382a8c7c746787165d93739472929993ec926e5f458cc9a78551a12dc6e14186a30abd403b3084549130ab6dd0d88b536df46b3e225043a7b38ba83a52c8";
   hasRunfiles = true;
   version = "1.81b";
 };
@@ -29281,10 +29299,10 @@
   hasRunfiles = true;
 };
 "ot-tableau" = {
-  revision = 59318;
+  revision = 67813;
   stripPrefix = 0;
-  sha512.run = "0a9c219d69f6eec4d9fbf8937e0cdde60b34cf38ce154332147ccc172b0ce90932ee08c7a85a68d4e5163461352745a5c0abdc6b8bdc187be5fce5b121f45c75";
-  sha512.doc = "8345d881600cf9f4d73cd2a23d12ff32f11a4d3a66b61262b0eae7dd3bc9039e20b187a6a9e45e9b15729015fb76b0e4e3e76c011e47688df09f4a848e508c4c";
+  sha512.run = "57ee595a08f2a30174215056300ed4f8ca496976ef7d0f80627b32d45bff7af85e8a33d8d37decd61883ab3cc61f74ce411687c260d2a427c96014d3defe9758";
+  sha512.doc = "45bcff2db460c23e543434ec46b8a168498ccf1fc1ac977f72f3022ac7ec02a874eda98a3bb6814edd22d86915b354fac5105efd1bcdb8eb979837edcada699b";
   hasRunfiles = true;
 };
 "othello" = {
@@ -31578,12 +31596,12 @@
   version = "2.7.0";
 };
 "profmaquette" = {
-  revision = 67285;
+  revision = 67827;
   stripPrefix = 0;
-  sha512.run = "cc1b53d3ef00443502c499d76199c07019d8397b517df88fc5c1a7e9a8d6d7c9e55729c23cb48a28a8bd712eacd6f1ceb7781010c3e29d89ff9cb95e64e8d440";
-  sha512.doc = "9d716555d5792e165abf9fbb264584a3f46f35d342730eed9f1a7fad85b375fb14d78564cf9303b2ef02afdcf943910691f9bbce7e1f2ea2ed8f0804863656ea";
+  sha512.run = "9c6ee0897c522a30c44e2fd6d208d49793f766f9c39f747eb195f4c4a3fa3741e52375381f70b50bfad69e4708b06ce1997141d9e512f41b6a7f603f4163cfe1";
+  sha512.doc = "fb1b8e31aac097caa7bdd1633edfb96c2d71bbbeb9ffeccfee13d414f043da9ef6071489f448f887f147680eedf9cbd089463840fc20ba288f141f9d541cfd0d";
   hasRunfiles = true;
-  version = "0.15";
+  version = "0.2";
 };
 "profsio" = {
   revision = 67562;
@@ -35175,6 +35193,15 @@
   hasRunfiles = true;
   version = "6.7b";
 };
+"setspaceenhanced" = {
+  revision = 67814;
+  stripPrefix = 0;
+  sha512.run = "c567c34d5428aeaffa0e64b6cf362a67506c05ec12e688ad9657cc04dba288ffc14ec413c0d3965a9cd080108d0e0f08b3061997182dec5fb48d14efaa003782";
+  sha512.doc = "2fdfbc9a62d76b217627242452e346cc46a74c62e61761ab64434a1e02cacd34d078017ff86de1e252fe9fa1ab7eb724769c86b25db2b07cf9714a6ff05b844a";
+  sha512.source = "8970460212e098dea51272b00d120310bdf93f789ca81876c6dcf40c96a029b7d51f10e80a6a65b0461bbd10b8e7741cc449fd2ffd138fcd0326e80403f94b97";
+  hasRunfiles = true;
+  version = "1.0";
+};
 "seu-ml-assign" = {
   revision = 62933;
   stripPrefix = 0;
@@ -35561,12 +35588,12 @@
   version = "1.6a";
 };
 "simpleicons" = {
-  revision = 67750;
+  revision = 67812;
   stripPrefix = 0;
-  sha512.run = "3c05545d2dfd3a7a9b170986328d7880b436200322632bd1007d9509e95a35bc2d94ea77d9e702ecbf7d2d7d3f65353b3b6910e99d930c60c1754385c74a3e6a";
-  sha512.doc = "8ca02ef0c4ee6971faf86939f8b89ec545bb25a5a0ef772f9e39262a776b28c9ba41668c1cc31ff935d0864e852de7fb6575fa818c8227f7ddd3fdb9cc0d9fc4";
+  sha512.run = "15f3165331a2f0cb35b6eb27b5776f10489a393ccee40b50cb563d718fe826c17235225d2560cb4d485de434e7c6d440f172c42494d8a4ca137f66f21e313e0a";
+  sha512.doc = "e6cb185b437ff850d80d01862e34637b7da21133807b85d41e0edb0d05741212b594508d04d2fd7d7ddc50acdce248db4d035cbe60c82b826b2bd7b5dbb7ae11";
   hasRunfiles = true;
-  version = "9.7.0";
+  version = "9.8.0";
 };
 "simpleinvoice" = {
   revision = 45673;
@@ -35676,17 +35703,17 @@
   version = "1.36";
 };
 "siunitx" = {
-  revision = 67789;
+  revision = 67815;
   stripPrefix = 0;
   deps = [
     "l3kernel"
     "l3packages"
   ];
-  sha512.run = "1da758a52fa2d1c3c869cb5f330f594158e8433f59ff0e0e7acac1563be61ab115725ea48fa87030259a7b01d416f416d93ece565a1d888b36b966ddae5304ce";
-  sha512.doc = "df0098bda3c0cef035e660a7287d1c8a6a19f9ec498672b5fdae51f66fbe75c0c7ca05cdd57defeed307ba2e9c31353f916d505fd7c513bddf8415aabb8b5b61";
-  sha512.source = "78bcd4e91cbda300febb80b0dc59aff9851dbfbae0f3ab78d554994532dfbe89c3599afc8bad79a1ff1b008336d98286e15138c8dc654fa1764490d66e9e5b51";
+  sha512.run = "5f767693c040b0a37e8bbcf6f5c9764509f0eea90745f6187471b53353adb1ebfbad85f9e277bde14183261bac22416ad44289f3d5c9938738aba1a7526c7372";
+  sha512.doc = "bb19a3ba797169e059d0f37e382b2b399204e8b4f79f4db334501e72911428f9db8f5e5476b2b1a18583bd2df1cca54aa70a5ffdf3ca293784dee2b45dac4c8c";
+  sha512.source = "315206597d735586845a14eccea3e68e01470200c60ae5e06fed25c9ae75b689a26ccae278fd49bcbccd4fd1d31ba1ee2385e0fabae4809de5c8926e5c519517";
   hasRunfiles = true;
-  version = "3.3.0";
+  version = "3.3.2";
 };
 "skak" = {
   revision = 61719;
@@ -37197,13 +37224,13 @@
   version = "1.1";
 };
 "tagpdf" = {
-  revision = 67609;
+  revision = 67840;
   stripPrefix = 0;
-  sha512.run = "90e97d768877dc2bd2fcaac84b02d5e1f6978f54d824cb63c64a02f2e6ecb91db98eeb43f09faae7e26f9f8f07edbf42572fce4dff079be9c0d9a574324e7a41";
-  sha512.doc = "55082e48a3152193877ce5a3351f7348dc9f8d7be9e7bdc55b6664c30fd852080a42efca6f26ad0ff08e38c8af2b3ab82fdc068b596afd01f986b6382abe9501";
-  sha512.source = "502faa3359941c89249cfcd14260ddc240b9311ee69d783b0d95abcdb5edb2825d333a7f93dc6c862cdf991ceca20cf0bc2ee733e794bf17f3770df725d06f70";
+  sha512.run = "04efb6cb0b052da79d7f2c6c41aa72b53cb2f4b6b8f41c49700b73c9a439879b8f5fb57cedc910a834d70c37733a9f09073c4a1ea521ea106f5689d6ab3be03c";
+  sha512.doc = "a4d17057b7ece0b774b3549246220c27e4357cef288e5263c4222fed2659fc9c7f80a51e4de0dc8b782273fb8c21b681dad6d1cba6df75601b85d0d4524eebb1";
+  sha512.source = "24f60c720cec7cd37e15ab4a2452f9b3734481bbcaf19bd9ecaad9f0bb2b3c4f17582a6ae970c4234802dad7de6ecf235a4d7d0a69861a68d0666885c7e6c10d";
   hasRunfiles = true;
-  version = "0.98j";
+  version = "0.98k";
 };
 "talk" = {
   revision = 42428;
@@ -37876,9 +37903,9 @@
   sha512.doc = "40e8b29f29ed61addc2b9e7ce4b73d12bf2e59f1c50c65e59e9c8cac5e6c3ef264ce2071b0d54e15f5029c101a51d0efcda0144e113aaedc714eb1300aa9635d";
 };
 "texlive-scripts" = {
-  revision = 67800;
-  sha512.run = "a319e961b66a0252be45f8be65613e9ce44cacaff6d363919b49d656ce04d9fbc45b2ea3f376611267ebd93918d63cb323b126a032131dbdfea645046eb7f698";
-  sha512.doc = "9e9a825e714eaea01d663d8122648b4188095de1d976384934dd629b2006d9146e2ecbd60580d91648f7d8f740a279aa7b7271ffbe3798cc052f054d9cc9a0aa";
+  revision = 67839;
+  sha512.run = "ec7ab8764bfa270cbc4056e2019f48b9042be988e22986d1b55bbc7d673c6364105432689c9bf95a3837c7f6fdceccf00bac07b13dceecdf056f9af04dcd77be";
+  sha512.doc = "7d012acc3b94f07d237c8725e8cd5528d4545b6ff61f46c5670154053970957f3b0a492f85ed34681c40f6d0de3f2d90b8e6b12346b558492368a59ff5208302";
   hasManpagesInDoc = true;
   hasRunfiles = true;
   hasTlpkg = true;
@@ -38893,10 +38920,10 @@
   version = "1.1";
 };
 "tikzpeople" = {
-  revision = 43978;
+  revision = 67840;
   stripPrefix = 0;
-  sha512.run = "9a7cdc232e91fc0d6e5fcc67ea8c39dd2a4b482ccb6ccfd82332151117ef5121ef49bebcd2e0266492c88b57c146eaa578d2136a23f8781f3fc5f5d07f527db7";
-  sha512.doc = "f561978adbe443659ec0890a8a38e9c9506f311d49d11fe952eacf579db0619946f86c0c6929a215fe7a98f5f02a782d1bc528359f195e09e1f388460dc0d55c";
+  sha512.run = "18621315d7bcec4bcca281b3c3410e281404fd29b0a5d2f4ad799aacb71a1c9d389db8bf1c9fc91b8cc279ec801f0cf8e31c826ded92d8476ce4ce5831754390";
+  sha512.doc = "8b8ad4cbfc03663afa6064d4a81ea9c256b8c08522e455c5660c649fb9f1de7859f368d5252b348e0521d62fa3a446b6ef9ad2d1490f7afed8f5423a99b46d3c";
   hasRunfiles = true;
   version = "0.4";
 };

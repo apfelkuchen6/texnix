@@ -16,7 +16,7 @@ let
     # day of the snapshot being taken
     year = "2023";
     month = "08";
-    day = "04";
+    day = "08";
     # TeX Live version
     texliveYear = 2023;
     # final (historic) release or snapshot
@@ -43,7 +43,7 @@ let
 
   tlpdbxz = fetchurl {
     urls = map (up: "${up}/tlpkg/texlive.tlpdb.xz") urlPrefixes;
-    hash = "sha256-jYtALD13I+JyLeWauTr7lddlsKyjkHt2beGHg5LIfpA=";
+    hash = "sha256-BJYIpEwMhsqwwEyRBuHVjqNni+bwSgMg5HXHtHdV8Nw=";
   };
 
   tlpdbNix = runCommand "tlpdb.nix" {
